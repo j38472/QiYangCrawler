@@ -81,9 +81,26 @@ public class Tool {
         return poJo;
     }
 
+    /**
+     * 取出手机号  消除掉所有的非数值的字符
+     * @param str 包含手机号的字符串
+     * @return 手机号码
+     */
+    public String QXSJDH(String str){
+        String regex = "1[0-9]{10}";
+
+        Pattern pattern  = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(str);
+        while (matcher.find()) {
+            str = matcher.group();
+        }
+        return  str;
+    }
+
+
 
     /**
-     * 消除首尾空格  支持半角空格 全角空格
+     * 消除首尾空格  支持半角空格 全角空格  支持  &nbsp
      *
      * @param str 需要匹配的字符串
      * @return
@@ -91,6 +108,7 @@ public class Tool {
     public String MyTrim(String str) {
         str = str.replaceAll("　", "");
         str = str.replaceAll(" ", "");
+        str = str.replaceAll("&nbsp","");
         return str;
     }
 
