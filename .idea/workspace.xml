@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Startover.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +148,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616577847272</updated>
-      <workItem from="1616577850765" duration="78898000" />
+      <workItem from="1616577850765" duration="80372000" />
     </task>
     <servers />
   </component>
