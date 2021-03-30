@@ -22,10 +22,11 @@ public class Tool {
 
     /**
      * 获取url的页面信息
+     *
      * @param url
-     * @return  html
+     * @return html
      */
-    public PoJo GetHtmlPage(String url){
+    public PoJo GetHtmlPage(String url) {
         PoJo poJo = new PoJo();
 
         //    static HttpHost host = new HttpHost("115.226.138.33", 58979);
@@ -65,13 +66,14 @@ public class Tool {
         }
 
         StatusLine statusLine = null;
+        int statusCode = 0;
         try {
-             statusLine = response.getStatusLine();
-        }catch (NullPointerException e){
+            statusLine = response.getStatusLine();
+            statusCode = statusLine.getStatusCode();
+        } catch (NullPointerException e) {
             System.out.println("get ,请求出问题了！！！！！！！！！！！");
         }
-        int statusCode = statusLine.getStatusCode();
-        System.out.println("状态码:::::::::::"+statusCode);
+        System.out.println("状态码:::::::::::" + statusCode);
 
         poJo.setHtml(HtmlPage);
         poJo.setZTCode(statusCode);
@@ -82,6 +84,7 @@ public class Tool {
 
     /**
      * 消除首尾空格  支持半角空格 全角空格
+     *
      * @param str 需要匹配的字符串
      * @return
      */
@@ -201,6 +204,7 @@ public class Tool {
 
     /**
      * 页码拼接
+     *
      * @param i
      * @param str
      * @return
@@ -210,11 +214,11 @@ public class Tool {
         int strEndIndex = str.indexOf("_TID");
         String resultStart = null;
         String resultEndIndex = null;
-        resultStart = str.substring(0, strStartIndex+2);
-        System.out.println("resultStart:::::"+resultStart);
+        resultStart = str.substring(0, strStartIndex + 2);
+        System.out.println("resultStart:::::" + resultStart);
         resultEndIndex = str.substring(strEndIndex, str.length());
-        System.out.println("resultEndIndex:::::::::"+resultEndIndex);
-        return resultStart+i+resultEndIndex;
+        System.out.println("resultEndIndex:::::::::" + resultEndIndex);
+        return resultStart + i + resultEndIndex;
     }
 
 
