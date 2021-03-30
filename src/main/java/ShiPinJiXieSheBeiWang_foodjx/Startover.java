@@ -14,6 +14,8 @@ public class Startover {
     static Entrance entrance = new Entrance();
 
     public static void main(String[] args) {
+        //  376
+
         // 创建 HashMap 对象 fenLeiSites
         HashMap<String, String> fenLeiSites = new HashMap<String, String>();
         // 添加键值对
@@ -33,6 +35,7 @@ public class Startover {
 
         text t = new text();
         Tool tool = new Tool();
+        //地区循环
         for (int i = 1; i < 36; i++) {
             //品类循环
             for (String y : fenLeiSites.keySet()) {
@@ -44,8 +47,7 @@ public class Startover {
                         //详情页 页码
                         for (int k = 1; k < 101; k++) {
                             urlChuShi = "https://www.foodjx.com/company/a_T" + i + "/list_p" + k + "_TID" + j + "_CH" + y + "_AN_CP.html";
-//                            System.out.println("初始列表页链接：：：：：："+urlChuShi);
-
+                            System.out.println("初始列表页链接：：：：：：" + urlChuShi);
                             PoJo poJo = new PoJo();
                             poJo = tool.GetHtmlPage(urlChuShi);
                             String HtmlPage = poJo.getHtml();
@@ -77,6 +79,7 @@ public class Startover {
                         }
                     }
                 }
+
             }
         }
     }
