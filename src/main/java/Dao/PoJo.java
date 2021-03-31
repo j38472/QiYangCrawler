@@ -1,6 +1,14 @@
 package Dao;
 
 public class PoJo {
+
+    String Sj = null;
+    String Html = null;
+    int ZTCode = 0;
+    int ID = 0;
+    String DH = null;
+
+
     public String getHtml() {
         return Html;
     }
@@ -17,7 +25,30 @@ public class PoJo {
         this.ZTCode = ZTCode;
     }
 
-    String Html = null;
-    int ZTCode = 0;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getDH() {
+        return DH;
+    }
+
+    public void setDH(String DH) {
+        this.DH = DH;
+    }
+
+    public String getSj() {
+        return Sj;
+    }
+
+    public void setSj(String sj) {
+        Sj = sj;
+    }
+
 
 }
