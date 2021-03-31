@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常" />
+    <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/PoJo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/PoJo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/text.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Entrance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Startover.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,7 +47,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -60,13 +69,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Startover (1)">
-    <configuration name="Entrance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShiPinSheBeiWangspsb114.Entrance" />
+  <component name="RunManager" selected="Application.text">
+    <configuration name="SJaddDHCleaning" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SqlCleaning.SJaddDHCleaning" />
       <module name="QiYangCrawler" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ShiPinSheBeiWangspsb114.*" />
+          <option name="PATTERN" value="SqlCleaning.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.text" />
+        <item itemvalue="Application.SJaddDHCleaning" />
         <item itemvalue="Application.Startover (1)" />
         <item itemvalue="Application.text (1)" />
         <item itemvalue="Application.Startover" />
-        <item itemvalue="Application.text" />
-        <item itemvalue="Application.Entrance" />
       </list>
     </recent_temporary>
   </component>
@@ -146,8 +155,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616577847272</updated>
-      <workItem from="1616577850765" duration="80819000" />
+      <workItem from="1616577850765" duration="94679000" />
     </task>
+    <task id="LOCAL-00001" summary="食品伙伴网爬虫">
+      <created>1617090371992</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617090371993</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +183,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="捕获了个异常" />
-    <option name="LAST_COMMIT_MESSAGE" value="捕获了个异常" />
+    <MESSAGE value="食品伙伴网爬虫" />
+    <option name="LAST_COMMIT_MESSAGE" value="食品伙伴网爬虫" />
   </component>
 </project>
