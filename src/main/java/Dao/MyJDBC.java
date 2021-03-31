@@ -1,6 +1,10 @@
 package Dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
 用来处理数据库的信息
@@ -9,8 +13,6 @@ public class MyJDBC {
     // MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL
     // 加载数据库驱动  com.mysql.jdbc.Driver
     static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    // 获取mysql连接地址
-    static String DB_URL = "jdbc:mysql://localhost:3306/qiyangdata?serverTimezone=GMT&useSSL=false";
 
 
     // 数据库的用户名与密码，需要根据自己的设置
@@ -21,7 +23,10 @@ public class MyJDBC {
     Statement stmt = null;
     ResultSet rs = null;
 
-    public MyJDBC(){
+    public MyJDBC() {
+        // 获取mysql连接地址
+         String DB_URL = "jdbc:mysql://localhost:3306/qiyangdata?serverTimezone=GMT&useSSL=false";
+
         // 注册 JDBC 驱动
         System.out.println("注册 JDBC 驱动------------------------------");
         try {
@@ -43,23 +48,23 @@ public class MyJDBC {
     /**
      * 关闭数据库链接
      */
-    public void GB(){
+    public void GB() {
         // 完成后关闭
         System.out.println("关闭数据链接-----------------------");
 
         try {
-            if (rs!=null){
+            if (rs != null) {
                 rs.close();
             }
-            if (stmt!=null){
+            if (stmt != null) {
                 stmt.close();
             }
-            if (conn!=null){
+            if (conn != null) {
                 conn.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             // 关闭资源
             try {
                 if (stmt != null) stmt.close();
@@ -75,7 +80,7 @@ public class MyJDBC {
 
     }
 
-    public void addName(String name,String url){
+    public void addName(String name, String url) {
         Tool tool = new Tool();
         try {
 
@@ -103,7 +108,6 @@ public class MyJDBC {
         }
         System.out.println("addName____________Goodbye!");
     }
-
 
 
     /**
@@ -152,30 +156,61 @@ public class MyJDBC {
 
 
     /**
-     * 创建表结构  需要一个表结构名字
+     * 查询数据库的 ID 手机号 电话号  存入实体  并返回
      *
-     * @param TablesName 表结构名字
+     * @return 包含 ID 手机号 电话 的实体
      */
-    public void addTables(String TablesName) {
+    public List<PoJo> SelectIdSjDh() {
+
+        PoJo poJo = new PoJo();
+        List<PoJo> list = new ArrayList();// 定义一个list，用来存放数据
+
+        /**
+         * sql语句
+         */
+        String selectSql = "SELECT id,DH,Sj FROM `shipinshebeiwangspsb114`;";
         try {
-            // 注册 JDBC 驱动
-            System.out.println("注册 JDBC 驱动------------------------------");
-            Class.forName(JDBC_DRIVER);
-            // 打开链接
-            System.out.println("连接数据库------------------------------");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            // 实例化Statement对象
-            System.out.println(" 实例化Statement对象------------------------------");
-            stmt = conn.createStatement();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            PreparedStatement state = conn.prepareCall(selectSql);//通过PreparedStatement执行查询语句
+            ResultSet rs = state.executeQuery();//将数据写入到ResultSet中
+            ResultSetMetaData md = rs.getMetaData();//获取键名
+            int columnCount = md.getColumnCount();//获取行的数量
+
+            while (rs.next()){
+                Map rowData = new HashMap();//声明Map
+                for (int i = 1; i <= columnCount; i++) {
+//                    rowData.put(md.getColumnName(i), rs.getObject(i));//获取键名及值
+//                    System.out.println("md.getColumnName(i)::::::::"+md.getColumnName(i).equals("SJ"));
+
+                    if (md.getColumnName(i).equals("DH")){
+                        poJo.setDH(rs.getObject(i).toString());
+                    }
+                    if (md.getColumnName(i).equals("SJ")){
+                        poJo.setSj(rs.getObject(i).toString());
+                    }
+                    if (md.getColumnName(i).equals("id")){
+                        poJo.setID((Integer) rs.getObject(i));
+                    }
+                    list.add(poJo);
+                }
+            }
+
         } catch (SQLException e) {
-            System.out.println("连接数据库-----------------出错了-------------出错了");
-            System.out.println(" 实例化Statement对象---------------出错了---------------出错了");
             e.printStackTrace();
         }
 
+//        for (int i = 0; i < list.size() ; i++) {
+//            System.out.println("list.get(i).getID()::::::"+list.get(i).getID());
+//            System.out.println("list.get(i).getDH()::::::"+list.get(i).getDH());
+//            System.out.println("list.get(i).getSj()::::::"+list.get(i).getSj());
+//        }
+
+
+
+
+        return list;
+
     }
+
 
 }
 
