@@ -81,20 +81,43 @@ public class Tool {
         return poJo;
     }
 
-    /**
-     * 取出手机号  消除掉所有的非数值的字符
-     * @param str 包含手机号的字符串
-     * @return 手机号码
-     */
-    public String QXSJDH(String str){
-        String regex = "1[0-9]{10}";
 
-        Pattern pattern  = Pattern.compile(regex);
+    /**
+     * 查询符合的手机号码
+     * @param str 包含手机号的字符串
+     */
+    public String checkCellphone(String str){
+        // 将给定的正则表达式编译到模式中
+        Pattern pattern = Pattern.compile("((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}");
+        // 创建匹配给定输入与此模式的匹配器。
         Matcher matcher = pattern.matcher(str);
-        while (matcher.find()) {
-            str = matcher.group();
+        //查找字符串中是否有符合的子字符串
+        String strJG = null;
+        while(matcher.find()){
+            //查找到符合的即输出
+            strJG = matcher.group();
+            System.out.println("查询到一个符合的手机号码："+strJG);
         }
-        return  str;
+        return strJG ;
+    }
+
+    /**
+     * 查询符合的固定电话
+     * @param str  包含电话号的字符串
+     */
+    public String  checkTelephone(String str){
+        // 将给定的正则表达式编译到模式中
+        Pattern pattern = Pattern.compile("(0\\d{2}-\\d{8}(-\\d{1,4})?)|(0\\d{3}-\\d{7,8}(-\\d{1,4})?)");
+        // 创建匹配给定输入与此模式的匹配器。
+        Matcher matcher = pattern.matcher(str);
+        //查找字符串中是否有符合的子字符串
+        String strJG = null;
+        while(matcher.find()){
+            //查找到符合的即输出
+            strJG = matcher.group();
+            System.out.println("查询到一个符合的手机号码："+strJG);
+        }
+        return strJG ;
     }
 
 
