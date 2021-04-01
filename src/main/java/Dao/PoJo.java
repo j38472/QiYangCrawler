@@ -1,12 +1,15 @@
 package Dao;
 
 public class PoJo {
-
+    String DH = null;
     String Sj = null;
     String Html = null;
     int ZTCode = 0;
     int ID = 0;
-    String DH = null;
+
+    String ZY = null;
+    String DZ = null;
+
 
 
     public String getHtml() {
