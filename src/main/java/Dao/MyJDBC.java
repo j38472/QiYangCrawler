@@ -25,7 +25,7 @@ public class MyJDBC {
 
     public MyJDBC() {
         // 获取mysql连接地址
-         String DB_URL = "jdbc:mysql://localhost:3306/qiyangdata?serverTimezone=GMT&useSSL=false";
+        String DB_URL = "jdbc:mysql://localhost:3306/qiyangdata?serverTimezone=GMT&useSSL=false";
 
         // 注册 JDBC 驱动
         System.out.println("注册 JDBC 驱动------------------------------");
@@ -162,55 +162,72 @@ public class MyJDBC {
      */
     public List<PoJo> SelectIdSjDh() {
 
-        PoJo poJo = new PoJo();
+
         List<PoJo> list = new ArrayList();// 定义一个list，用来存放数据
 
         /**
          * sql语句
          */
-        String selectSql = "SELECT id,DH,Sj FROM `shipinshebeiwangspsb114`;";
+        String selectSql = "SELECT id,DH,Sj FROM `zhongghoushipinwang_pooioo`;";
         try {
             PreparedStatement state = conn.prepareCall(selectSql);//通过PreparedStatement执行查询语句
             ResultSet rs = state.executeQuery();//将数据写入到ResultSet中
-            ResultSetMetaData md = rs.getMetaData();//获取键名
-            int columnCount = md.getColumnCount();//获取行的数量
 
-            while (rs.next()){
-                Map rowData = new HashMap();//声明Map
-                for (int i = 1; i <= columnCount; i++) {
-//                    rowData.put(md.getColumnName(i), rs.getObject(i));//获取键名及值
-//                    System.out.println("md.getColumnName(i)::::::::"+md.getColumnName(i).equals("SJ"));
-
-                    if (md.getColumnName(i).equals("DH")){
-                        poJo.setDH(rs.getObject(i).toString());
-                    }
-                    if (md.getColumnName(i).equals("SJ")){
-                        poJo.setSj(rs.getObject(i).toString());
-                    }
-                    if (md.getColumnName(i).equals("id")){
-                        poJo.setID((Integer) rs.getObject(i));
-                    }
-                    list.add(poJo);
-                }
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String dh = rs.getString("DH");
+                String sj = rs.getString("SJ");
+                PoJo poJo = new PoJo();
+                poJo.setID(id);
+                poJo.setSj(sj);
+                poJo.setDH(dh);
+                list.add(poJo);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-//        for (int i = 0; i < list.size() ; i++) {
-//            System.out.println("list.get(i).getID()::::::"+list.get(i).getID());
-//            System.out.println("list.get(i).getDH()::::::"+list.get(i).getDH());
-//            System.out.println("list.get(i).getSj()::::::"+list.get(i).getSj());
-//        }
-
-
-
 
         return list;
 
     }
 
+
+    /**
+     * 根据id  修改数据库中的手机号和电话号
+     * @param poJoList  pojo实体集合
+     */
+    public void updataSJDH(List<PoJo> poJoList){
+        for (int i = 0; i < poJoList.size(); i++) {
+            String InsertSql = "UPDATE zhongghoushipinwang_pooioo SET DH='"+poJoList.get(i).getDH()+"',Sj='"+poJoList.get(i).getSj()+"' WHERE id="+poJoList.get(i).getID()+";";
+            System.out.println(InsertSql);
+            try {
+                stmt.executeUpdate(InsertSql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
+    }
+
+
+    /**
+     * 根据id 删除指定数据
+     * @param id
+     */
+    public void deleteID(int id){
+        String strSql = "DELETE FROM zhongghoushipinwang_pooioo WHERE id="+id+";";
+        System.out.println(strSql);
+        try {
+            stmt.executeUpdate(strSql);
+        } catch (SQLException e) {
+            System.out.println("数据库删除id异常！！！");
+            e.printStackTrace();
+        }
+    }
 
 }
 
