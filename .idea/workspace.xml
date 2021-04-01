@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_httpclient_commons_httpclient_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlcleaner_htmlcleaner_2_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom2_2_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DownImg/Demo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DownImg/text.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiYiShiPinWang_foods1/Entrance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiYiShiPinWang_foods1/Startover.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/PoJo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/PoJo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/text.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Entrance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Startover.java" afterDir="false" />
@@ -67,7 +57,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/captcha/jpg/javaOcr" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/DiYiShiPinWang_foods1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -77,13 +67,14 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ShiPinSheBeiWangspsb114" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ideaJTxt\QiYangCrawler\src\main\java\DiYiShiPinWang_foods1" />
       <recent name="E:\ideaJTxt\QiYangCrawler\src\main\java" />
     </key>
   </component>
@@ -99,7 +90,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Startover (1)">
+  <component name="RunManager" selected="Application.Startover">
     <configuration name="CleaningEntrance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SqlCleaning.CleaningEntrance" />
       <module name="QiYangCrawler" />
@@ -126,12 +117,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SJaddDHCleaning" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SqlCleaning.SJaddDHCleaning" />
+    <configuration name="Startover (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ShiPinJiXieSheBeiWang_foodjx.Startover" />
       <module name="QiYangCrawler" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="SqlCleaning.*" />
+          <option name="PATTERN" value="ShiPinJiXieSheBeiWang_foodjx.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,12 +130,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Startover (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShiPinJiXieSheBeiWang_foodjx.Startover" />
+    <configuration name="Startover" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DiYiShiPinWang_foods1.Startover" />
       <module name="QiYangCrawler" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ShiPinJiXieSheBeiWang_foodjx.*" />
+          <option name="PATTERN" value="DiYiShiPinWang_foods1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -167,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Startover" />
         <item itemvalue="Application.Startover (1)" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="Application.CleaningEntrance" />
         <item itemvalue="Application.text" />
-        <item itemvalue="Application.SJaddDHCleaning" />
       </list>
     </recent_temporary>
   </component>
@@ -186,7 +177,8 @@
       <option name="presentableId" value="Default" />
       <updated>1616577847272</updated>
       <workItem from="1616577850765" duration="94679000" />
-      <workItem from="1617172757441" duration="11630000" />
+      <workItem from="1617172757441" duration="15230000" />
+      <workItem from="1617247765145" duration="10968000" />
     </task>
     <task id="LOCAL-00001" summary="食品伙伴网爬虫">
       <created>1617090371992</created>
