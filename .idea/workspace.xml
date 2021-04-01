@@ -2,13 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_httpclient_commons_httpclient_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlcleaner_htmlcleaner_2_19.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom2_2_0_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DownImg/Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DownImg/text.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/PoJo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/PoJo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/text.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Entrance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Startover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Startover.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +42,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1qVlhOYHneVKyH1QRDlTY23O69y" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -47,7 +77,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -69,7 +99,33 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.text">
+  <component name="RunManager" selected="Application.Startover (1)">
+    <configuration name="CleaningEntrance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SqlCleaning.CleaningEntrance" />
+      <module name="QiYangCrawler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SqlCleaning.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DownImg.Demo" />
+      <module name="QiYangCrawler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DownImg.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SJaddDHCleaning" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SqlCleaning.SJaddDHCleaning" />
       <module name="QiYangCrawler" />
@@ -96,32 +152,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Startover" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShiPinSheBeiWangspsb114.Startover" />
-      <module name="QiYangCrawler" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ShiPinSheBeiWangspsb114.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="text (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShiPinJiXieSheBeiWang_foodjx.text" />
-      <module name="QiYangCrawler" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ShiPinJiXieSheBeiWang_foodjx.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="text" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Dao.text" />
       <module name="QiYangCrawler" />
@@ -137,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Startover (1)" />
+        <item itemvalue="Application.Demo" />
+        <item itemvalue="Application.CleaningEntrance" />
         <item itemvalue="Application.text" />
         <item itemvalue="Application.SJaddDHCleaning" />
-        <item itemvalue="Application.Startover (1)" />
-        <item itemvalue="Application.text (1)" />
-        <item itemvalue="Application.Startover" />
       </list>
     </recent_temporary>
   </component>
@@ -156,6 +186,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616577847272</updated>
       <workItem from="1616577850765" duration="94679000" />
+      <workItem from="1617172757441" duration="11630000" />
     </task>
     <task id="LOCAL-00001" summary="食品伙伴网爬虫">
       <created>1617090371992</created>
@@ -170,12 +201,24 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -185,5 +228,16 @@
     <MESSAGE value="捕获了个异常" />
     <MESSAGE value="食品伙伴网爬虫" />
     <option name="LAST_COMMIT_MESSAGE" value="食品伙伴网爬虫" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DownImg/Demo.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
