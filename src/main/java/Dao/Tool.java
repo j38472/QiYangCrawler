@@ -84,46 +84,84 @@ public class Tool {
 
     /**
      * 查询符合的手机号码
+     *
      * @param str 包含手机号的字符串
      */
-    public String checkCellphone(String str){
+    public String checkCellphone(String str) {
         // 将给定的正则表达式编译到模式中
-        Pattern pattern = Pattern.compile("((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}");
+        Pattern pattern = Pattern.compile("((1[0-9]))\\d{9}");
         // 创建匹配给定输入与此模式的匹配器。
-        Matcher matcher = pattern.matcher(str);
+        Matcher matcher = null;
+        try {
+            matcher = pattern.matcher(str);
+
+        } catch (NullPointerException e) {
+            System.out.println("这个匹配的字符串是空的");
+        }
         //查找字符串中是否有符合的子字符串
         String strJG = null;
-        while(matcher.find()){
-            //查找到符合的即输出
-            strJG = matcher.group();
-            System.out.println("查询到一个符合的手机号码："+strJG);
+        if (matcher != null) {
+            while (matcher.find()) {
+                //查找到符合的即输出
+                strJG = matcher.group();
+                System.out.println("查询到一个符合的手机号码：" + strJG);
+            }
         }
-        return strJG ;
+
+        return strJG;
     }
+
+    public static String isPhoneRegexp()
+    {
+        String regexp = "";
+        String mobilePhoneRegexp = "(?:(\\(\\+?86\\))((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})|" +
+                "(?:86-?((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})|" +
+                "(?:((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})";
+        String landlinePhoneRegexp = "(?:(\\(\\+?86\\))(0[0-9]{2,3}\\-?)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?)|" +
+                "(?:(86-?)?(0[0-9]{2,3}\\-?)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?)";
+        regexp += "(?:" + mobilePhoneRegexp + "|" + landlinePhoneRegexp +")";
+        return regexp;
+    }
+
+
 
     /**
      * 查询符合的固定电话
-     * @param str  包含电话号的字符串
+     *
+     * @param str 包含电话号的字符串
      */
-    public String  checkTelephone(String str){
+    public String checkTelephone(String str) {
         // 将给定的正则表达式编译到模式中
-        Pattern pattern = Pattern.compile("(0\\d{2}-\\d{8}(-\\d{1,4})?)|(0\\d{3}-\\d{7,8}(-\\d{1,4})?)");
+        Pattern pattern = Pattern.compile(isPhoneRegexp());
         // 创建匹配给定输入与此模式的匹配器。
-        Matcher matcher = pattern.matcher(str);
+        Matcher matcher = null;
+        try {
+            matcher = pattern.matcher(str);
+
+        } catch (NullPointerException e) {
+            System.out.println("这个匹配的字符串是空的");
+        }
+
+//        System.out.println("matcher.matches():::::::::::::::::::::::::::::::::::::::::::::::::" + matcher.matches());
         //查找字符串中是否有符合的子字符串
         String strJG = null;
-        while(matcher.find()){
-            //查找到符合的即输出
-            strJG = matcher.group();
-            System.out.println("查询到一个符合的手机号码："+strJG);
+        try {
+            if (matcher.matches()) {
+                //查找到符合的即输出
+                strJG = matcher.group();
+                System.out.println("查询到一个符合的固话号码：" + strJG);
+            }
+        }catch (NullPointerException e){
+
         }
-        return strJG ;
+
+        System.out.println("最后打印一下strJG:::" + strJG);
+        return strJG;
     }
 
 
-
     /**
-     * 消除首尾空格  支持半角空格 全角空格  支持  &nbsp
+     * 消除首尾空格  支持半角空格 全角空格  支持  &nbsp  &nbsp;
      *
      * @param str 需要匹配的字符串
      * @return
@@ -131,7 +169,10 @@ public class Tool {
     public String MyTrim(String str) {
         str = str.replaceAll("　", "");
         str = str.replaceAll(" ", "");
-        str = str.replaceAll("&nbsp","");
+        str = str.replaceAll("&nbsp", "");
+        str = str.replaceAll("&nbsp;", "");
+        str = str.replaceAll(";", "");
+
         return str;
     }
 
@@ -176,7 +217,12 @@ public class Tool {
 
         /* 找出指定的2个字符在 该字符串里面的 位置 */
         int strStartIndex = str.indexOf(strStart);
-        int strEndIndex = str.indexOf(strEnd);
+        int strEndIndex = 0;
+        if (strEnd==""){
+             strEndIndex = str.indexOf(str.length());
+        }else {
+            strEndIndex = str.indexOf(strEnd);
+        }
 
         /* index 为负数 即表示该字符串中 没有该字符 */
         if (strStartIndex < 0) {
@@ -220,8 +266,9 @@ public class Tool {
     }
 
 
-    /***
+    /**
      * 去掉字符串中的换行符、回车符等，将连续多个空格替换成一个空格
+     *
      * @param string 需要清洗的字符串
      * @return 清洗过的字符串
      */
@@ -261,11 +308,6 @@ public class Tool {
         System.out.println("resultEndIndex:::::::::" + resultEndIndex);
         return resultStart + i + resultEndIndex;
     }
-
-
-    /**
-     *
-     */
 
 
 }
