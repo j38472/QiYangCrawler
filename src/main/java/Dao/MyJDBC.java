@@ -1,5 +1,7 @@
 package Dao;
 
+import org.junit.Test;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -196,11 +198,12 @@ public class MyJDBC {
 
     /**
      * 根据id  修改数据库中的手机号和电话号
-     * @param poJoList  pojo实体集合
+     *
+     * @param poJoList pojo实体集合
      */
-    public void updataSJDH(List<PoJo> poJoList){
+    public void updataSJDH(List<PoJo> poJoList) {
         for (int i = 0; i < poJoList.size(); i++) {
-            String InsertSql = "UPDATE zhongghoushipinwang_pooioo SET DH='"+poJoList.get(i).getDH()+"',Sj='"+poJoList.get(i).getSj()+"' WHERE id="+poJoList.get(i).getID()+";";
+            String InsertSql = "UPDATE zhongghoushipinwang_pooioo SET DH='" + poJoList.get(i).getDH() + "',Sj='" + poJoList.get(i).getSj() + "' WHERE id=" + poJoList.get(i).getID() + ";";
             System.out.println(InsertSql);
             try {
                 stmt.executeUpdate(InsertSql);
@@ -216,10 +219,11 @@ public class MyJDBC {
 
     /**
      * 根据id 删除指定数据
+     *
      * @param id
      */
-    public void deleteID(int id){
-        String strSql = "DELETE FROM zhongghoushipinwang_pooioo WHERE id="+id+";";
+    public void deleteID(int id) {
+        String strSql = "DELETE FROM zhongghoushipinwang_pooioo WHERE id=" + id + ";";
         System.out.println(strSql);
         try {
             stmt.executeUpdate(strSql);
@@ -227,6 +231,32 @@ public class MyJDBC {
             System.out.println("数据库删除id异常！！！");
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 存储爬虫进度的数据
+     * 用于爬虫出现异常 停止时  记载当前进度
+     *
+     * @param id    索引
+     * @param LbUrl 当前爬取列表页面的url
+     * @param XqUrl 当前爬取详情页面的url
+     * @param p     列表页的页码
+     */
+    public void addplannedpeed(int id, String LbUrl, String XqUrl, int p) {
+        //执行插入 sql
+        System.out.println("执行插入 sql------------------------------------");
+        String InsertSql = "INSERT INTO plannedspeed (LBUrl,XQUrl,p)VALUES('"+ LbUrl + "','" + XqUrl + "','" + p + "');";
+        System.out.println("InsertSql::::::" + InsertSql);
+        try {
+            stmt.executeUpdate(InsertSql);
+            System.out.println("sql 插入成功");
+        } catch (SQLException e) {
+            System.out.println("sql 插入失败了！！");
+            e.printStackTrace();
+        }
+        System.out.println("请注意！！！！，当前列表页进度为：：：：：："+LbUrl);
+        System.out.println("请注意！！！！，当前详情页进度为：：：：：："+XqUrl);
+        System.out.println("请注意！！！！，当前页码进度为：：：：：："+p);
     }
 
 }
