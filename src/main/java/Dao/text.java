@@ -3,9 +3,11 @@ package Dao;
 public class text {
     public static void main(String[] args) {
 
-        String InsertSqlFormat = "INSERT INTO chushi_copy2 (Name,Url,Zy,LXR,DH,SJ,DZ)VALUES('%s','%s','%s','%s','%s','%s','%s');";
-        String xpath = String.format(InsertSqlFormat,"nameaaaa","URlaaa","Zyaaa","LXaaaR","DHaa","SJaaa","aaa");
-        System.out.println(xpath);
+
+
+//        String InsertSqlFormat = "INSERT INTO chushi_copy2 (Name,Url,Zy,LXR,DH,SJ,DZ)VALUES('%s','%s','%s','%s','%s','%s','%s');";
+//        String xpath = String.format(InsertSqlFormat,"nameaaaa","URlaaa","Zyaaa","LXaaaR","DHaa","SJaaa","aaa");
+//        System.out.println(xpath);
 
 //        Tool tool = new Tool();
 //        String str = "字符串:---->\n" +

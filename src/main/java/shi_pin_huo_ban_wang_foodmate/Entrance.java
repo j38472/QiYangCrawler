@@ -70,10 +70,7 @@ public class Entrance {
             e.printStackTrace();
         }
 
-
-
         myJDBC.addplannedpeed(LBURL);
-        myJDBC.GB();
     }
 
     /**

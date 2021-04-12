@@ -3,7 +3,9 @@ package Dao;
 import org.junit.Test;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -140,11 +142,10 @@ public class MyJDBC {
             //执行插入 sql
             System.out.println("执行插入 sql------------------------------------");
             String InsertSqlFormat = "INSERT INTO chushi_copy2 (Name,Url,Zy,LXR,DH,SJ,DZ)VALUES('%s','%s','%s','%s','%s','%s','%s');";
-            String InsertSql = String.format(InsertSqlFormat,name,url,zy,lxr,dh,sj,dz);
+            String InsertSql = String.format(InsertSqlFormat, name, url, zy, lxr, dh, sj, dz);
             System.out.println(InsertSql);
             stmt.executeUpdate(InsertSql);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // 处理 Class.forName 错误
             e.printStackTrace();
         }
@@ -152,17 +153,16 @@ public class MyJDBC {
 
     }
 
-    public void addData(PoJo poJo,String dataDb) {
+    public void addData(PoJo poJo, String dataDb) {
         try {
             System.out.println("正在入库的数据");
             //执行插入 sql
             System.out.println("执行插入 sql------------------------------------");
-            String InsertSqlFormat = "INSERT INTO "+dataDb+" (Name,Url,Zy,LXR,DH,SJ,DZ)VALUES('%s','%s','%s','%s','%s','%s','%s');";
-            String InsertSql = String.format(InsertSqlFormat,poJo.getName(),poJo.getUrl(),poJo.getZY(),poJo.getLXR(),poJo.getDH(),poJo.getSj(),poJo.getDZ());
-            System.out.println("sql语句为：：：：：：："+InsertSql);
+            String InsertSqlFormat = "INSERT INTO " + dataDb + " (Name,Url,Zy,LXR,DH,SJ,DZ)VALUES('%s','%s','%s','%s','%s','%s','%s');";
+            String InsertSql = String.format(InsertSqlFormat, poJo.getName(), poJo.getUrl(), poJo.getZY(), poJo.getLXR(), poJo.getDH(), poJo.getSj(), poJo.getDZ());
+            System.out.println("sql语句为：：：：：：：" + InsertSql);
             stmt.executeUpdate(InsertSql);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // 处理 Class.forName 错误
             e.printStackTrace();
         }
@@ -252,11 +252,14 @@ public class MyJDBC {
      *
      * @param LbUrl 当前爬取列表页面的url
      */
+
     public void addplannedpeed(String LbUrl) {
         //执行插入 sql
+        MyJDBC myJDBC = new MyJDBC();
         System.out.println("执行插入 sql------------------------------------");
-        String InsertSql = "INSERT INTO plannedspeed (LBUrl)VALUES('%s');";
-        InsertSql= String.format(InsertSql,LbUrl);
+        String InsertSql = "INSERT INTO plannedspeed (LBUrl,DQTime)VALUES('%s','%s');";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+        InsertSql = String.format(InsertSql, LbUrl, dateFormat.format(new Date()));
         System.out.println("InsertSql::::::" + InsertSql);
         try {
             stmt.executeUpdate(InsertSql);
