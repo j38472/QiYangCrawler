@@ -69,11 +69,15 @@ public class MyJDBC {
         } finally {
             // 关闭资源
             try {
-                if (stmt != null) stmt.close();
+                if (stmt != null) {
+                    stmt.close();
+                }
             } catch (SQLException se2) {
             }// 什么都不做
             try {
-                if (conn != null) conn.close();
+                if (conn != null) {
+                    conn.close();
+                }
             } catch (SQLException se) {
                 se.printStackTrace();
             }
@@ -121,13 +125,11 @@ public class MyJDBC {
      * @param sj
      * @param dz
      */
-    public void add(String name, String url, String zy, String lxr, String dh, String sj, String dz) {
+    public void addData(String name, String url, String zy, String lxr, String dh, String sj, String dz) {
         Tool tool = new Tool();
         try {
-
-
             System.out.println("正在入库的数据");
-
+            //消除各种意义上的空格  和 ；
             System.out.println("url:: " + tool.MyTrim(url));
             System.out.println("name:: " + tool.MyTrim(name));
             System.out.println("zy:: " + tool.MyTrim(zy));
@@ -135,27 +137,38 @@ public class MyJDBC {
             System.out.println("dh:: " + tool.MyTrim(dh));
             System.out.println("sj:: " + tool.MyTrim(sj));
             System.out.println("dz:: " + tool.MyTrim(dz));
-
             //执行插入 sql
             System.out.println("执行插入 sql------------------------------------");
-            String InsertSql = "INSERT INTO shipinjixieshebeiwang_foodjx (Name,Url,Zy,LXR,DH,SJ,DZ )VALUES('" + name + "','" + url + "','" + zy + "','" + lxr + "','" + dh + "','" + sj + "','" + dz + "');";
+            String InsertSqlFormat = "INSERT INTO chushi_copy2 (Name,Url,Zy,LXR,DH,SJ,DZ)VALUES('%s','%s','%s','%s','%s','%s','%s');";
+            String InsertSql = String.format(InsertSqlFormat,name,url,zy,lxr,dh,sj,dz);
             System.out.println(InsertSql);
             stmt.executeUpdate(InsertSql);
-
-
         }
-//        catch (SQLException se) {
-//            // 处理 JDBC 错误
-//            se.printStackTrace();
-//        }
         catch (Exception e) {
             // 处理 Class.forName 错误
             e.printStackTrace();
         }
-        System.out.println("add_____________Goodbye!");
+        System.out.println("addData_____________Goodbye!");
 
     }
 
+    public void addData(PoJo poJo,String dataDb) {
+        try {
+            System.out.println("正在入库的数据");
+            //执行插入 sql
+            System.out.println("执行插入 sql------------------------------------");
+            String InsertSqlFormat = "INSERT INTO "+dataDb+" (Name,Url,Zy,LXR,DH,SJ,DZ)VALUES('%s','%s','%s','%s','%s','%s','%s');";
+            String InsertSql = String.format(InsertSqlFormat,poJo.getName(),poJo.getUrl(),poJo.getZY(),poJo.getLXR(),poJo.getDH(),poJo.getSj(),poJo.getDZ());
+            System.out.println("sql语句为：：：：：：："+InsertSql);
+            stmt.executeUpdate(InsertSql);
+        }
+        catch (Exception e) {
+            // 处理 Class.forName 错误
+            e.printStackTrace();
+        }
+        System.out.println("addData_____________Goodbye!");
+
+    }
 
     /**
      * 查询数据库的 ID 手机号 电话号  存入实体  并返回
@@ -237,15 +250,13 @@ public class MyJDBC {
      * 存储爬虫进度的数据
      * 用于爬虫出现异常 停止时  记载当前进度
      *
-     * @param id    索引
      * @param LbUrl 当前爬取列表页面的url
-     * @param XqUrl 当前爬取详情页面的url
-     * @param p     列表页的页码
      */
-    public void addplannedpeed(int id, String LbUrl, String XqUrl, int p) {
+    public void addplannedpeed(String LbUrl) {
         //执行插入 sql
         System.out.println("执行插入 sql------------------------------------");
-        String InsertSql = "INSERT INTO plannedspeed (LBUrl,XQUrl,p)VALUES('"+ LbUrl + "','" + XqUrl + "','" + p + "');";
+        String InsertSql = "INSERT INTO plannedspeed (LBUrl)VALUES('%s');";
+        InsertSql= String.format(InsertSql,LbUrl);
         System.out.println("InsertSql::::::" + InsertSql);
         try {
             stmt.executeUpdate(InsertSql);
@@ -254,9 +265,7 @@ public class MyJDBC {
             System.out.println("sql 插入失败了！！");
             e.printStackTrace();
         }
-        System.out.println("请注意！！！！，当前列表页进度为：：：：：："+LbUrl);
-        System.out.println("请注意！！！！，当前详情页进度为：：：：：："+XqUrl);
-        System.out.println("请注意！！！！，当前页码进度为：：：：：："+p);
+        System.out.println("请注意！！！！，当前列表页进度为：：：：：：" + LbUrl);
     }
 
 }
