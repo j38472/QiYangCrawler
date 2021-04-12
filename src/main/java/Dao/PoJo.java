@@ -1,15 +1,59 @@
 package Dao;
 
 public class PoJo {
-    String DH = null;
-    String Sj = null;
+
     String Html = null;
     int ZTCode = 0;
     int ID = 0;
-
+    String DH = null;
+    String Sj = null;
     String ZY = null;
     String DZ = null;
+    String LXR = null;
+    String Name = null;
+    String Url = null;
 
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
+    }
+
+
+
+    public String getZY() {
+        return ZY;
+    }
+
+    public void setZY(String ZY) {
+        this.ZY = ZY;
+    }
+
+    public String getDZ() {
+        return DZ;
+    }
+
+    public void setDZ(String DZ) {
+        this.DZ = DZ;
+    }
+
+    public String getLXR() {
+        return LXR;
+    }
+
+    public void setLXR(String LXR) {
+        this.LXR = LXR;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
 
 
     public String getHtml() {
