@@ -3,13 +3,6 @@ package DiYiShiPinWang_foods1;
 import Dao.MyJDBC;
 import Dao.PoJo;
 import Dao.Tool;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
@@ -26,6 +19,7 @@ public class Entrance {
     static int cont = 0; // 记录抓取了几条数据
     int UrlCrawRetry = 1;//记录详情页URL 抓取重试次数
     MyJDBC myJDBC = new MyJDBC();
+    String chuShiUrl = "http://www.foods1.com/";
 
     /**
      * 根据列表页URl获取到详情页的URL
@@ -34,10 +28,10 @@ public class Entrance {
      */
     public void getXQUrl(String url) {
         PoJo poJo = new PoJo();
-        poJo = tool.GetHtmlPage(url);
+
+        poJo = tool.ClientGetHtmlPage(url,chuShiUrl);
         String htmlPage = poJo.getHtml();
         //下面两个需要和获取到的url进行拼接
-        String chuShiUrl = "http://www.foods1.com/";
         String JieWeiUrl = "/index";
         String sapthUrl = "//div[@class='nr_k']/div[@class='qg_bt']/div[@class='bt_zi']/a/@href";
         Object[] urlObjects = new Object[0]; //
@@ -65,7 +59,7 @@ public class Entrance {
      * @param url 详情页URl
      */
     public void getXQ(String url) {
-        PoJo poJo =tool.GetHtmlPage(url);
+        PoJo poJo =tool.ClientGetHtmlPage(url,chuShiUrl);
         String htmlPage = poJo.getHtml();
 
         /**

@@ -19,8 +19,7 @@ public class text {
         Tool tool = new Tool();
 
 
-        System.out.println(tool.GetHtmlPage("https://www.foodjx.com/st216650/").getHtml()
-        );
+        System.out.println(tool.ClientGetHtmlPage("https://www.foodjx.com/st216650/","https://www.foodjx.com").getHtml());
 
 //       String s=  tool.setP(2,"https://www.foodjx.com/company/a_T35/list_p1_TID5_CH3606_AN_CP.html");
 //        System.out.println(s);

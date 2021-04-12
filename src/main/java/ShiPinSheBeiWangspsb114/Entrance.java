@@ -184,7 +184,7 @@ public class Entrance {
                     System.out.println();
 
                     //入库
-                    myJDBC.add(name, xqurl, zy, lxr, dh, sj, wzdz);
+                    myJDBC.addData(name, xqurl, zy, lxr, dh, sj, wzdz);
                 }
 
             } catch (IndexOutOfBoundsException es) {

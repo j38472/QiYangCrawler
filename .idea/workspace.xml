@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
-      <change beforePath="$PROJECT_DIR$/.idea/QiYangCrawler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/QiYangCrawler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_httpclient_commons_httpclient_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_httpclient_commons_httpclient_3_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlcleaner_htmlcleaner_2_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlcleaner_htmlcleaner_2_19.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom2_2_0_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom2_2_0_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shi_pin_huo_ban_wang_foodmate/Entrance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shi_pin_huo_ban_wang_foodmate/Startover.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Entrance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Startover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/PoJo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/PoJo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/text.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiYiShiPinWang_foods1/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiYiShiPinWang_foods1/Entrance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Entrance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinHuoBanWang_foodmate/Startover.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Entrance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Startover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/text.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinSheBeiWangspsb114/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinSheBeiWangspsb114/Entrance.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,39 +122,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MyJDBC.addplannedpeed">
-    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DownImg.Demo" />
-      <module name="QiYangCrawler" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DownImg.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Startover (1)">
     <configuration name="Startover (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShiPinJiXieSheBeiWang_foodjx.Startover" />
+      <option name="MAIN_CLASS_NAME" value="shi_pin_huo_ban_wang_foodmate.Startover" />
       <module name="QiYangCrawler" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ShiPinJiXieSheBeiWang_foodjx.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Startover (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShiPinHuoBanWang_foodmate.Startover" />
-      <module name="QiYangCrawler" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ShiPinHuoBanWang_foodmate.*" />
+          <option name="PATTERN" value="shi_pin_huo_ban_wang_foodmate.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -159,14 +137,59 @@
       </method>
     </configuration>
     <configuration name="Startover" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DiYiShiPinWang_foods1.Startover" />
+      <option name="MAIN_CLASS_NAME" value="shi_pin_huo_ban_wang_foodmate.Startover" />
       <module name="QiYangCrawler" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DiYiShiPinWang_foods1.*" />
+          <option name="PATTERN" value="shi_pin_huo_ban_wang_foodmate.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="text" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Dao.text" />
+      <module name="QiYangCrawler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Entrance.getListData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QiYangCrawler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="shi_pin_huo_ban_wang_foodmate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="shi_pin_huo_ban_wang_foodmate" />
+      <option name="MAIN_CLASS_NAME" value="shi_pin_huo_ban_wang_foodmate.Entrance" />
+      <option name="METHOD_NAME" value="getListData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Entrance.getListUrl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QiYangCrawler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="shi_pin_huo_ban_wang_foodmate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="shi_pin_huo_ban_wang_foodmate" />
+      <option name="MAIN_CLASS_NAME" value="shi_pin_huo_ban_wang_foodmate.Entrance" />
+      <option name="METHOD_NAME" value="getListUrl" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,11 +212,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MyJDBC.addplannedpeed" />
-        <item itemvalue="Application.Startover (2)" />
-        <item itemvalue="Application.Startover" />
         <item itemvalue="Application.Startover (1)" />
-        <item itemvalue="Application.Demo" />
+        <item itemvalue="JUnit.Entrance.getListUrl" />
+        <item itemvalue="Application.text" />
+        <item itemvalue="JUnit.Entrance.getListData" />
+        <item itemvalue="JUnit.MyJDBC.addplannedpeed" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +244,9 @@
       <workItem from="1617172757441" duration="15230000" />
       <workItem from="1617247765145" duration="10968000" />
       <workItem from="1617776640392" duration="6178000" />
-      <workItem from="1617937616294" duration="1808000" />
+      <workItem from="1617937616294" duration="7160000" />
+      <workItem from="1617950103305" duration="9564000" />
+      <workItem from="1618190461290" duration="10891000" />
     </task>
     <task id="LOCAL-00001" summary="食品伙伴网爬虫">
       <created>1617090371992</created>

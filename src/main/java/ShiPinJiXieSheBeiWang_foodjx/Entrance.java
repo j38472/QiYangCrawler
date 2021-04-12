@@ -75,7 +75,7 @@ public class Entrance {
 
 
         PoJo poJo = new PoJo();
-        poJo = tool.GetHtmlPage(url);
+        poJo = tool.ClientGetHtmlPage(url,"https://www.foodjx.com");
         String HtmlPage = poJo.getHtml();
 
         /**
@@ -133,7 +133,7 @@ public class Entrance {
 
 
                 System.out.println("开始存储正常数据");
-                myJDBC.add(name,url,zy,lxr,dh,sj,dz);
+                myJDBC.addData(name,url,zy,lxr,dh,sj,dz);
             }
 
         } catch (XPatherException e) {
