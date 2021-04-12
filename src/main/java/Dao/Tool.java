@@ -19,14 +19,26 @@ import java.util.regex.Pattern;
  */
 public class Tool {
 
+    /**
+     * jsoup 获取页面数据
+     */
+    public void JsoupGetHtmlData(){
+
+    }
+
+    /**
+     * httpUnit 获取页面数据
+     */
+    public void UnitGetHemlData(){}
 
     /**
      * 获取url的页面信息
      *
      * @param url
+     * @param referer
      * @return html
      */
-    public PoJo GetHtmlPage(String url) {
+    public PoJo ClientGetHtmlPage(String url,String referer) {
         PoJo poJo = new PoJo();
 
         //    static HttpHost host = new HttpHost("115.226.138.33", 58979);
@@ -39,14 +51,14 @@ public class Tool {
         CloseableHttpResponse response = null;
         HttpEntity entity = null;
 
-        System.out.println("获取页面数据----------------------------------------URL为：：：：：" + url);
+        System.out.println("获取页面数据-------URL为：：：：：" + url);
         //client 获取页面信息
         httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(url);// 创建get请求
         // 设置头
         httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2");
 //        httpGet.setHeader("ip","");
-        httpGet.setHeader("Referer", "https://www.foodjx.com/");
+        httpGet.setHeader("Referer", referer);
         httpGet.setConfig(requestConfig);
         //执行请求前先休眠  以防止被禁止访问
         try {
@@ -73,7 +85,7 @@ public class Tool {
         } catch (NullPointerException e) {
             System.out.println("get ,请求出问题了！！！！！！！！！！！");
         }
-        System.out.println("状态码:::::::::::" + statusCode);
+        System.out.println("状态码::::::" + statusCode);
 
         poJo.setHtml(HtmlPage);
         poJo.setZTCode(statusCode);
@@ -89,7 +101,8 @@ public class Tool {
      */
     public String checkCellphone(String str) {
         // 将给定的正则表达式编译到模式中
-        Pattern pattern = Pattern.compile("((1[0-9]))\\d{9}");
+        String Re = "((1[0-9]))\\d{9}";
+        Pattern pattern = Pattern.compile(Re);
         // 创建匹配给定输入与此模式的匹配器。
         Matcher matcher = null;
         try {
@@ -111,8 +124,7 @@ public class Tool {
         return strJG;
     }
 
-    public static String isPhoneRegexp()
-    {
+    public static String isPhoneRegexp() {
         String regexp = "";
         String mobilePhoneRegexp = "(?:(\\(\\+?86\\))((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})|" +
                 "(?:86-?((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})|" +
@@ -281,8 +293,8 @@ public class Tool {
 //                 "                                    　　传真：028-85182274\n" +
 //                 "                                    　　手机：13808067328\n" +
 //                 "                                    　　邮编：610041";
-        Pattern p = Pattern.compile("\t|\r|\n");
-        Matcher m = p.matcher(string);
+        Pattern patt = Pattern.compile("\t|\r|\n");
+        Matcher m = patt.matcher(string);
         string = m.replaceAll("");
         string = string.replaceAll(" +", " ");
         return string;
@@ -307,6 +319,20 @@ public class Tool {
         resultEndIndex = str.substring(strEndIndex, str.length());
         System.out.println("resultEndIndex:::::::::" + resultEndIndex);
         return resultStart + i + resultEndIndex;
+    }
+
+    /**
+     * 字符串切分  用sp切分str返回 切分的第二个字符串
+     * @param str
+     * @param sp
+     * @return
+     */
+    public String mySplitRTwo(String str,String sp){
+        if (str.indexOf(sp)!=-1) {
+            String[] lisStr = str.split(sp);
+            str = lisStr[1];
+        }
+        return  str;
     }
 
 
