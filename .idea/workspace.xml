@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
-      <change afterPath="$PROJECT_DIR$/src/main/java/daZhongDianPing/analytics.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/text.java" afterDir="false" />
@@ -114,7 +113,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MyJDBC.addplannedpeed">
+  <component name="RunManager" selected="Application.text">
     <configuration name="Startover (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="shi_pin_huo_ban_wang_foodmate.Startover" />
       <module name="QiYangCrawler" />
@@ -204,10 +203,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.text" />
         <item itemvalue="JUnit.MyJDBC.addplannedpeed" />
         <item itemvalue="Application.Startover (1)" />
         <item itemvalue="JUnit.Entrance.getListUrl" />
-        <item itemvalue="Application.text" />
         <item itemvalue="JUnit.Entrance.getListData" />
       </list>
     </recent_temporary>
@@ -238,7 +237,8 @@
       <workItem from="1617776640392" duration="6178000" />
       <workItem from="1617937616294" duration="7160000" />
       <workItem from="1617950103305" duration="9564000" />
-      <workItem from="1618190461290" duration="14915000" />
+      <workItem from="1618190461290" duration="15585000" />
+      <workItem from="1618276247489" duration="4130000" />
     </task>
     <task id="LOCAL-00001" summary="食品伙伴网爬虫">
       <created>1617090371992</created>

@@ -15,7 +15,7 @@ public class Entrance {
     Tool tool = new Tool();
     PoJo poJo = new PoJo();
     String referer = "http://company.foodmate.net/";
-    MyJDBC myJDBC  = new MyJDBC();
+    MyJDBC myJDBC = new MyJDBC();
 
     /**
      * 获取列表页的数据
@@ -115,18 +115,18 @@ public class Entrance {
 
             for (Object obj :
                     dataObject) {
-                if (obj.toString().indexOf("联系人：")!=-1){
+                if (obj.toString().indexOf("联系人：") != -1) {
                     boo = true;
                 }
-                if (obj.toString().indexOf("电话：")!=-1){
+                if (obj.toString().indexOf("电话：") != -1) {
                     boo = true;
                 }
-                if (obj.toString().indexOf("手机：")!=-1){
+                if (obj.toString().indexOf("手机：") != -1) {
                     boo = true;
                 }
             }
             //
-            if (boo){
+            if (boo) {
                 System.out.println("开始执行第一套规则");
                 int cote = 1;
                 for (Object s :
@@ -182,22 +182,22 @@ public class Entrance {
                     }
                     cote++;
                 }
-            }else {
+            } else {
                 dataObject = tn.evaluateXPath(dataXpath2);
                 for (Object obj :
                         dataObject) {
-                    if (obj.toString().indexOf("联系人：")!=-1){
+                    if (obj.toString().indexOf("联系人：") != -1) {
                         boo = true;
                     }
-                    if (obj.toString().indexOf("电话：")!=-1){
+                    if (obj.toString().indexOf("电话：") != -1) {
                         boo = true;
                     }
-                    if (obj.toString().indexOf("手机：")!=-1){
+                    if (obj.toString().indexOf("手机：") != -1) {
                         boo = true;
                     }
                 }
 
-                if (boo){
+                if (boo) {
                     System.out.println("                    //开始第二套规则");
                     int cote = 1;
                     for (Object s :
@@ -254,23 +254,23 @@ public class Entrance {
                         }
                         cote++;
                     }
-                }else {
+                } else {
                     // 第三套规则  只有 dataxpath 与第二套不同
                     dataObject = tn.evaluateXPath(dataXpath3);
                     for (Object obj :
                             dataObject) {
-                        if (obj.toString().indexOf("联系人：")!=-1){
+                        if (obj.toString().indexOf("联系人：") != -1) {
                             boo = true;
                         }
-                        if (obj.toString().indexOf("电话：")!=-1){
+                        if (obj.toString().indexOf("电话：") != -1) {
                             boo = true;
                         }
-                        if (obj.toString().indexOf("手机：")!=-1){
+                        if (obj.toString().indexOf("手机：") != -1) {
                             boo = true;
                         }
                     }
 
-                    if (boo){
+                    if (boo) {
                         System.out.println("开始第三套规则！！！！！！！！！！！！");
                         int cote = 1;
                         for (Object s :
@@ -328,13 +328,12 @@ public class Entrance {
                             }
                             cote++;
                         }
-                    }else {
+                    } else {
                         System.out.println("第三套规则同样没有取到数据  ，！！！！！！！！！！！！！！！！！！！！！！！！");
                     }
 
 
                 }
-
 
 
             }
@@ -376,7 +375,16 @@ public class Entrance {
         System.out.println(poJodata.getDH());
         System.out.println(poJodata.getDZ());
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
-        myJDBC.addData(poJodata,"shipinhuobanwang_foodmate");
+
+        if (boo) {
+            System.out.println("数据没有问题，开始正常存储");
+            myJDBC.addData(poJodata, "shipinhuobanwang_foodmate");
+        } else {
+            System.out.println("数据不全，开始只存储名字");
+            myJDBC.addName(poJodata.getName(), poJodata.getUrl());
+        }
+
+
     }
 
 

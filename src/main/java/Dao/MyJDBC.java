@@ -88,23 +88,24 @@ public class MyJDBC {
 
     }
 
+    /**
+     * 由于网站数据全 只存入公司名字和详情页的URL
+     * @param name
+     * @param url
+     */
     public void addName(String name, String url) {
         Tool tool = new Tool();
         try {
+            System.out.println("开始直插入名字");
 
-
-            System.out.println("正在入库的数据");
-
-            System.out.println("url:: " + tool.MyTrim(url));
-            System.out.println("name:: " + tool.MyTrim(name));
-
+//            System.out.println("url:: " + tool.MyTrim(url));
+//            System.out.println("name:: " + tool.MyTrim(name));
             //执行插入 sql
             System.out.println("执行插入 sql------------------------------------");
-            String InsertSql = "INSERT INTO ZiYouName (Name,Url)VALUES('" + name + "','" + url + "');";
+            String InsertSql = "INSERT INTO ZiYouName (Name,Url)VALUES('%s','%s');";
+            InsertSql = String.format(InsertSql,name,url);
             System.out.println(InsertSql);
             stmt.executeUpdate(InsertSql);
-
-
         }
 //        catch (SQLException se) {
 //            // 处理 JDBC 错误
@@ -113,8 +114,9 @@ public class MyJDBC {
         catch (Exception e) {
             // 处理 Class.forName 错误
             e.printStackTrace();
+        }finally {
+            System.out.println("addName方法____________Goodbye!");
         }
-        System.out.println("addName____________Goodbye!");
     }
 
 
@@ -153,6 +155,11 @@ public class MyJDBC {
 
     }
 
+    /**
+     * 将传输来的实体类中的数据存入dataBb表中
+     * @param poJo  实体数据
+     * @param dataDb 表名
+     */
     public void addData(PoJo poJo, String dataDb) {
         try {
             System.out.println("正在入库的数据");
@@ -252,7 +259,6 @@ public class MyJDBC {
      *
      * @param LbUrl 当前爬取列表页面的url
      */
-
     public void addplannedpeed(String LbUrl) {
         //执行插入 sql
         MyJDBC myJDBC = new MyJDBC();
@@ -270,6 +276,7 @@ public class MyJDBC {
         }
         System.out.println("请注意！！！！，当前列表页进度为：：：：：：" + LbUrl);
     }
+
 
 }
 
