@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Text/ajax.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Text/chunk-vendors.77daf991.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Text/text.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Text/youDaoFanYiPost.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningEntrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningDataDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningDataDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningDataDb.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -233,7 +226,7 @@
       <workItem from="1617950103305" duration="9564000" />
       <workItem from="1618190461290" duration="15585000" />
       <workItem from="1618276247489" duration="10440000" />
-      <workItem from="1618369736547" duration="17601000" />
+      <workItem from="1618369736547" duration="18977000" />
     </task>
     <task id="LOCAL-00001" summary="食品伙伴网爬虫">
       <created>1617090371992</created>

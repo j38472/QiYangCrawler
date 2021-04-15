@@ -227,7 +227,7 @@ public class CleaningDataDb {
                     boo = false;
                 }
             }
-            if (boo) {
+
                 //判断手机号和电话号是不是都存在
                 String sj = poJo.getSj();
                 String dh = poJo.getDH();
@@ -236,7 +236,7 @@ public class CleaningDataDb {
                 if (sj.length() > 11 || dh.length() > 8) {
                     boo = false;
                 }
-            }
+            
 
             if (boo) {
                 myJDBC.deleteID(id, dataDb);
