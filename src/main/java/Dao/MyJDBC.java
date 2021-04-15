@@ -90,6 +90,7 @@ public class MyJDBC {
 
     /**
      * 由于网站数据全 只存入公司名字和详情页的URL
+     *
      * @param name
      * @param url
      */
@@ -103,7 +104,7 @@ public class MyJDBC {
             //执行插入 sql
             System.out.println("执行插入 sql------------------------------------");
             String InsertSql = "INSERT INTO ZiYouName (Name,Url)VALUES('%s','%s');";
-            InsertSql = String.format(InsertSql,name,url);
+            InsertSql = String.format(InsertSql, name, url);
             System.out.println(InsertSql);
             stmt.executeUpdate(InsertSql);
         }
@@ -114,7 +115,7 @@ public class MyJDBC {
         catch (Exception e) {
             // 处理 Class.forName 错误
             e.printStackTrace();
-        }finally {
+        } finally {
             System.out.println("addName方法____________Goodbye!");
         }
     }
@@ -157,7 +158,8 @@ public class MyJDBC {
 
     /**
      * 将传输来的实体类中的数据存入dataBb表中
-     * @param poJo  实体数据
+     *
+     * @param poJo   实体数据
      * @param dataDb 表名
      */
     public void addData(PoJo poJo, String dataDb) {
@@ -176,45 +178,6 @@ public class MyJDBC {
         System.out.println("addData_____________Goodbye!");
 
     }
-
-    /**
-     * 查询数据库的 ID 手机号 电话号  存入实体  并返回
-     *
-     * @return 包含 ID 手机号 电话 的实体
-     */
-    public List<PoJo> SelectIdSjDh() {
-
-
-        List<PoJo> list = new ArrayList();// 定义一个list，用来存放数据
-
-        /**
-         * sql语句
-         */
-        String selectSql = "SELECT id,DH,Sj FROM `zhongghoushipinwang_pooioo`;";
-        try {
-            PreparedStatement state = conn.prepareCall(selectSql);//通过PreparedStatement执行查询语句
-            ResultSet rs = state.executeQuery();//将数据写入到ResultSet中
-
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String dh = rs.getString("DH");
-                String sj = rs.getString("SJ");
-                PoJo poJo = new PoJo();
-                poJo.setID(id);
-                poJo.setSj(sj);
-                poJo.setDH(dh);
-                list.add(poJo);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-        return list;
-
-    }
-
 
     /**
      * 根据id  修改数据库中的手机号和电话号
@@ -236,7 +199,6 @@ public class MyJDBC {
 
     }
 
-
     /**
      * 根据id 删除指定数据
      *
@@ -244,6 +206,22 @@ public class MyJDBC {
      */
     public void deleteID(int id) {
         String strSql = "DELETE FROM zhongghoushipinwang_pooioo WHERE id=" + id + ";";
+        System.out.println(strSql);
+        try {
+            stmt.executeUpdate(strSql);
+        } catch (SQLException e) {
+            System.out.println("数据库删除id异常！！！");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 根据id 删除指定表中数据
+     * @param id
+     * @param dataDb
+     */
+    public void deleteID(int id,String dataDb) {
+        String strSql = "DELETE FROM "+dataDb+" WHERE id=" + id + ";";
         System.out.println(strSql);
         try {
             stmt.executeUpdate(strSql);
@@ -276,6 +254,80 @@ public class MyJDBC {
         }
         System.out.println("请注意！！！！，当前列表页进度为：：：：：：" + LbUrl);
     }
+
+
+    /**
+     * 查询数据库的 ID 手机号 电话号  存入实体  并返回
+     *
+     * @return 包含 ID 手机号 电话 的实体
+     */
+    public List<PoJo> SelectIdSjDh() {
+        List<PoJo> list = new ArrayList();// 定义一个list，用来存放数据
+
+        /**
+         * sql语句
+         */
+        String selectSql = "SELECT id,DH,Sj FROM `zhongghoushipinwang_pooioo`;";
+        try {
+            PreparedStatement state = conn.prepareCall(selectSql);//通过PreparedStatement执行查询语句
+            ResultSet rs = state.executeQuery();//将数据写入到ResultSet中
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String dh = rs.getString("DH");
+                String sj = rs.getString("SJ");
+                PoJo poJo = new PoJo();
+                poJo.setID(id);
+                poJo.setSj(sj);
+                poJo.setDH(dh);
+                list.add(poJo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
+    /**
+     * 获取一个表中的全部数据
+     * @return
+     */
+    public List<PoJo> getSelectDb( String dataDb) {
+        List<PoJo> list = new ArrayList();// 定义一个list，用来存放数据
+        /**
+         * sql语句
+         */
+        String selectSql = "SELECT * FROM `" + dataDb + "`;";
+        try {
+            PreparedStatement state = conn.prepareCall(selectSql);//通过PreparedStatement执行查询语句
+            ResultSet rs = state.executeQuery();//将数据写入到ResultSet中
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String url = rs.getString("Url");
+                String name = rs.getString("Name");
+                String zy = rs.getString("Zy");
+                String lxr = rs.getString("LXR");
+                String dh = rs.getString("DH");
+                String sj = rs.getString("SJ");
+                String dz = rs.getString("DZ");
+                PoJo poJo = new PoJo();
+                poJo.setUrl(url);
+                poJo.setID(id);
+                poJo.setName(name);
+                poJo.setZY(zy);
+                poJo.setLXR(lxr);
+                poJo.setSj(sj);
+                poJo.setDH(dh);
+                poJo.setDZ(dz);
+                list.add(poJo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
 
 
 }
