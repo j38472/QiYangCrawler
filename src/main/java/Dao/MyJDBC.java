@@ -1,14 +1,12 @@
 package Dao;
 
-import org.junit.Test;
+
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /*
 用来处理数据库的信息
@@ -95,7 +93,7 @@ public class MyJDBC {
      * @param url
      */
     public void addName(String name, String url) {
-        Tool tool = new Tool();
+        MyTool myTool = new MyTool();
         try {
             System.out.println("开始直插入名字");
 
@@ -131,17 +129,17 @@ public class MyJDBC {
      * @param dz
      */
     public void addData(String name, String url, String zy, String lxr, String dh, String sj, String dz) {
-        Tool tool = new Tool();
+        MyTool myTool = new MyTool();
         try {
             System.out.println("正在入库的数据");
             //消除各种意义上的空格  和 ；
-            System.out.println("url:: " + tool.MyTrim(url));
-            System.out.println("name:: " + tool.MyTrim(name));
-            System.out.println("zy:: " + tool.MyTrim(zy));
-            System.out.println("lxr:: " + tool.MyTrim(lxr));
-            System.out.println("dh:: " + tool.MyTrim(dh));
-            System.out.println("sj:: " + tool.MyTrim(sj));
-            System.out.println("dz:: " + tool.MyTrim(dz));
+            System.out.println("url:: " + myTool.MyTrim(url));
+            System.out.println("name:: " + myTool.MyTrim(name));
+            System.out.println("zy:: " + myTool.MyTrim(zy));
+            System.out.println("lxr:: " + myTool.MyTrim(lxr));
+            System.out.println("dh:: " + myTool.MyTrim(dh));
+            System.out.println("sj:: " + myTool.MyTrim(sj));
+            System.out.println("dz:: " + myTool.MyTrim(dz));
             //执行插入 sql
             System.out.println("执行插入 sql------------------------------------");
             String InsertSqlFormat = "INSERT INTO chushi_copy2 (Name,Url,Zy,LXR,DH,SJ,DZ)VALUES('%s','%s','%s','%s','%s','%s','%s');";
@@ -195,6 +193,36 @@ public class MyJDBC {
             }
 
         }
+    }
+
+    /**
+     * 根据id  修改数据库中的手机号和电话号
+     *
+     * @param poJoList pojo实体集合
+     */
+    public void updataSJDH(List<PoJo> poJoList, String dataDb) {
+
+        for (int i = 0; i < poJoList.size(); i++) {
+            String InsertSql = "UPDATE %s SET DH='%s',Sj='%s' WHERE id=%s;";
+            String dh = "";
+            String sj = "";
+            String pojoDh = poJoList.get(i).getDH();
+            String pojosj = poJoList.get(i).getSj();
+            if (pojoDh!=null) {
+                dh = poJoList.get(i).getDH();
+            }
+            if (pojosj!=null) {
+                sj = poJoList.get(i).getSj();
+            }
+            InsertSql = String.format(InsertSql, dataDb, dh, sj, poJoList.get(i).getID());
+            System.out.println(InsertSql);
+            try {
+                stmt.executeUpdate(InsertSql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
 
 
     }
@@ -217,11 +245,12 @@ public class MyJDBC {
 
     /**
      * 根据id 删除指定表中数据
+     *
      * @param id
      * @param dataDb
      */
-    public void deleteID(int id,String dataDb) {
-        String strSql = "DELETE FROM "+dataDb+" WHERE id=" + id + ";";
+    public void deleteID(int id, String dataDb) {
+        String strSql = "DELETE FROM " + dataDb + " WHERE id=" + id + ";";
         System.out.println(strSql);
         try {
             stmt.executeUpdate(strSql);
@@ -287,12 +316,45 @@ public class MyJDBC {
         return list;
     }
 
+    /**
+     * 查询 dataDb 的 id sj dh 存入实体类集合中并返回
+     *
+     * @param dataDb
+     * @return
+     */
+    public List<PoJo> SelectIdSjDh(String dataDb) {
+        List<PoJo> list = new ArrayList();// 定义一个list，用来存放数据
+
+        /**
+         * sql语句
+         */
+        String selectSql = "SELECT id,DH,Sj FROM `" + dataDb + "`;";
+        try {
+            PreparedStatement state = conn.prepareCall(selectSql);//通过PreparedStatement执行查询语句
+            ResultSet rs = state.executeQuery();//将数据写入到ResultSet中
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String dh = rs.getString("DH");
+                String sj = rs.getString("SJ");
+                PoJo poJo = new PoJo();
+                poJo.setID(id);
+                poJo.setSj(sj);
+                poJo.setDH(dh);
+                list.add(poJo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 
     /**
      * 获取一个表中的全部数据
+     *
      * @return
      */
-    public List<PoJo> getSelectDb( String dataDb) {
+    public List<PoJo> getSelectDb(String dataDb) {
         List<PoJo> list = new ArrayList();// 定义一个list，用来存放数据
         /**
          * sql语句
@@ -326,8 +388,6 @@ public class MyJDBC {
         }
         return list;
     }
-
-
 
 
 }
