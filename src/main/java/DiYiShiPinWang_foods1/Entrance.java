@@ -2,7 +2,7 @@ package DiYiShiPinWang_foods1;
 
 import Dao.MyJDBC;
 import Dao.PoJo;
-import Dao.Tool;
+import Dao.MyTool;
 import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
@@ -15,7 +15,7 @@ import org.htmlcleaner.XPatherException;
  * 获取公司的
  */
 public class Entrance {
-    Tool tool = new Tool();
+    MyTool myTool = new MyTool();
     static int cont = 0; // 记录抓取了几条数据
     int UrlCrawRetry = 1;//记录详情页URL 抓取重试次数
     MyJDBC myJDBC = new MyJDBC();
@@ -29,7 +29,7 @@ public class Entrance {
     public void getXQUrl(String url) {
         PoJo poJo = new PoJo();
 
-        poJo = tool.ClientGetHtmlPage(url,chuShiUrl);
+        poJo = myTool.ClientGetHtmlPage(url,chuShiUrl);
         String htmlPage = poJo.getHtml();
         //下面两个需要和获取到的url进行拼接
         String JieWeiUrl = "/index";
@@ -59,7 +59,7 @@ public class Entrance {
      * @param url 详情页URl
      */
     public void getXQ(String url) {
-        PoJo poJo =tool.ClientGetHtmlPage(url,chuShiUrl);
+        PoJo poJo = myTool.ClientGetHtmlPage(url,chuShiUrl);
         String htmlPage = poJo.getHtml();
 
         /**

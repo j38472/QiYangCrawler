@@ -1,7 +1,7 @@
 package ShiPinJiXieSheBeiWang_foodjx;
 
 
-import Dao.Tool;
+import Dao.MyTool;
 
 public class text {
     static Entrance entrance = new Entrance();
@@ -16,10 +16,10 @@ public class text {
 //        demo();
 
 
-        Tool tool = new Tool();
+        MyTool myTool = new MyTool();
 
 
-        System.out.println(tool.ClientGetHtmlPage("https://www.foodjx.com/st216650/","https://www.foodjx.com").getHtml());
+        System.out.println(myTool.ClientGetHtmlPage("https://www.foodjx.com/st216650/","https://www.foodjx.com").getHtml());
 
 //       String s=  tool.setP(2,"https://www.foodjx.com/company/a_T35/list_p1_TID5_CH3606_AN_CP.html");
 //        System.out.println(s);

@@ -1,12 +1,12 @@
 package DiYiShiPinWang_foods1;
 
-import Dao.Tool;
+import Dao.MyTool;
 
 public class Startover {
 
     static Entrance entrance = new Entrance();
     static Startover startover = new Startover();
-    static Tool tool = new Tool();
+    static MyTool myTool = new MyTool();
     public static void main(String[] args) {
 //        startover.EntranceDownLB();
 //        System.out.println(tool.removeLineBreak(""));

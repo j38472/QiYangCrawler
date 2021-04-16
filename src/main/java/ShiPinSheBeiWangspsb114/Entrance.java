@@ -20,7 +20,7 @@ import org.htmlcleaner.*;
  * 获取公司的
  */
 public class Entrance {
-    Tool tool = new Tool();
+    MyTool myTool = new MyTool();
     static int cont = 0; // 记录抓取了几条数据
     int UrlCrawRetry = 1;//记录详情页URL 抓取重试次数
     MyJDBC myJDBC = new MyJDBC();
@@ -56,7 +56,7 @@ public class Entrance {
 
 
         //执行请求前先休眠  以防止被禁止访问
-        tool.MyThreadSleep(1000);
+        myTool.MyThreadSleep(1000);
 
 
         // 执行请求
@@ -158,13 +158,13 @@ public class Entrance {
 //                    System.out.println("zy::" + zy);
                     //切分出 联系人 电话  手机
                     LXRDHS = LXRDHSojects[i + 1].toString();
-                    lxr = tool.subString(LXRDHS, "人：", "电话");//联系人
-                    dh = tool.subString(LXRDHS, "话：", "手机");//电话
-                    sj = tool.subString(LXRDHS, "机：", "更多");//手机
+                    lxr = myTool.subString(LXRDHS, "人：", "电话");//联系人
+                    dh = myTool.subString(LXRDHS, "话：", "手机");//电话
+                    sj = myTool.subString(LXRDHS, "机：", "更多");//手机
 //                    System.out.println("截取联系人::" + lxr);
 //                    System.out.println("截取电话::" + dh);
 //                    System.out.println("截取手机::" + sj);
-                    csdz = tool.subString(CsDzobjects[i + 5].toString(), "[", "]");
+                    csdz = myTool.subString(CsDzobjects[i + 5].toString(), "[", "]");
 //                    System.out.println("城市地址::" + csdz);
                     String xqdzsq =  XqDz(xqurl);
                     if (xqdzsq!=null){
@@ -218,7 +218,7 @@ public class Entrance {
         httpGet.setHeader("Referer", "http://www.spsb114.com/company/company_list.php?");
         httpGet.setConfig(requestConfig);
         //执行请求前先休眠  以防止被禁止访问
-        tool.MyThreadSleep(1000);
+        myTool.MyThreadSleep(1000);
         // 执行请求
         System.out.println("执行请求-----------");
         String HtmlPage = "";
@@ -335,22 +335,22 @@ public class Entrance {
         }
         xqyI = 0;//归零
         //去除字符串中的换行符、回车符等，将连续多个空格替换成一个空格
-        data = tool.removeLineBreak(data);
+        data = myTool.removeLineBreak(data);
         System.out.println("开始截取详情地址数据" + data);
         System.out.println("待修改的地址：：：：：：：：：：：：" + data);
 
         //如果该网页中有详情地址
         if (data.indexOf("地址：") != -1) {
             if (data.indexOf(" 电") != -1) {
-                xqdz = tool.subString(data, "址：", " 电");
+                xqdz = myTool.subString(data, "址：", " 电");
             } else if (data.indexOf(" 公") != -1) {
-                xqdz = tool.subString(data, "址：", " 公");
+                xqdz = myTool.subString(data, "址：", " 公");
             } else if (data.indexOf(" 传") != -1) {
-                xqdz = tool.subString(data, "址：", " 传");
+                xqdz = myTool.subString(data, "址：", " 传");
             } else if (data.indexOf(" 手") != -1) {
-                xqdz = tool.subString(data, "址：", " 手");
+                xqdz = myTool.subString(data, "址：", " 手");
             } else if (data.indexOf(" 邮") != -1) {
-                xqdz = tool.subString(data, "址：", " 邮");
+                xqdz = myTool.subString(data, "址：", " 邮");
             }
         }
         System.out.println("详情地址：：最终结果：： " + xqdz);

@@ -11,7 +11,7 @@ import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
 
 public class Entrance {
-    Tool tool = new Tool();
+    MyTool myTool = new MyTool();
 
     //    static HttpHost host = new HttpHost("115.226.138.33", 58979);
     private static RequestConfig requestConfig = RequestConfig.custom()
@@ -75,7 +75,7 @@ public class Entrance {
 
 
         PoJo poJo = new PoJo();
-        poJo = tool.ClientGetHtmlPage(url,"https://www.foodjx.com");
+        poJo = myTool.ClientGetHtmlPage(url,"https://www.foodjx.com");
         String HtmlPage = poJo.getHtml();
 
         /**

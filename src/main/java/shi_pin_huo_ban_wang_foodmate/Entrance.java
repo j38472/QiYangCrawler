@@ -2,17 +2,16 @@ package shi_pin_huo_ban_wang_foodmate;
 
 import Dao.MyJDBC;
 import Dao.PoJo;
-import Dao.Tool;
+import Dao.MyTool;
 import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
-import org.junit.Test;
 
 /**
  * 爬虫
  */
 public class Entrance {
-    Tool tool = new Tool();
+    MyTool myTool = new MyTool();
     PoJo poJo = new PoJo();
     String referer = "http://company.foodmate.net/";
     MyJDBC myJDBC = new MyJDBC();
@@ -21,7 +20,7 @@ public class Entrance {
      * 获取列表页的数据
      */
     public void getListUrl(String LBURL) {
-        poJo = tool.ClientGetHtmlPage(LBURL, referer);
+        poJo = myTool.ClientGetHtmlPage(LBURL, referer);
 //        System.out.println("poJo.getHtml():::::" + poJo.getHtml());
 
         System.out.println("poJo.getZTCode()::::" + poJo.getZTCode());
@@ -85,7 +84,7 @@ public class Entrance {
     public void getListData(PoJo poJodata) {
         String url = poJodata.getUrl();
         //联系方式的页面 拼接
-        poJo = tool.ClientGetHtmlPage(url, referer);
+        poJo = myTool.ClientGetHtmlPage(url, referer);
         String html = poJo.getHtml();
         int code = poJo.getZTCode();
         String contact = "contact/";
@@ -171,10 +170,10 @@ public class Entrance {
                              * 判断冒号是不是中文冒号  还是英文冒号
                              */
                             if (data.indexOf(":") != -1) {
-                                lxr = tool.mySplitRTwo(data, ":");
+                                lxr = myTool.mySplitRTwo(data, ":");
                             }
                             if (data.indexOf("") != -1) {
-                                lxr = tool.mySplitRTwo(data, "：");
+                                lxr = myTool.mySplitRTwo(data, "：");
                             }
                             System.out.println("联系人：：：：" + lxr);
                             poJodata.setLXR(lxr);
@@ -243,10 +242,10 @@ public class Entrance {
                                  * 判断冒号是不是中文冒号  还是英文冒号
                                  */
                                 if (data.indexOf(":") != -1) {
-                                    lxr = tool.mySplitRTwo(data, ":");
+                                    lxr = myTool.mySplitRTwo(data, ":");
                                 }
                                 if (data.indexOf("") != -1) {
-                                    lxr = tool.mySplitRTwo(data, "：");
+                                    lxr = myTool.mySplitRTwo(data, "：");
                                 }
                                 System.out.println("联系人：：：：" + lxr);
                                 poJodata.setLXR(lxr);
@@ -315,10 +314,10 @@ public class Entrance {
                                      * 判断冒号是不是中文冒号  还是英文冒号
                                      */
                                     if (data.indexOf(":") != -1) {
-                                        lxr = tool.mySplitRTwo(data, ":");
+                                        lxr = myTool.mySplitRTwo(data, ":");
                                     }
                                     if (data.indexOf("") != -1) {
-                                        lxr = tool.mySplitRTwo(data, "：");
+                                        lxr = myTool.mySplitRTwo(data, "：");
                                     }
                                     System.out.println("联系人：：：：" + lxr);
                                     poJodata.setLXR(lxr);
@@ -348,7 +347,7 @@ public class Entrance {
         String dzXpath = "//*[@id=\"main\"]/div[3]/div/table/tbody/tr[2]/td[2]/text()";
 
 
-        poJo = tool.ClientGetHtmlPage(url + contact, referer);
+        poJo = myTool.ClientGetHtmlPage(url + contact, referer);
         html = poJo.getHtml();
         code = poJo.getZTCode();
         System.out.println(code);

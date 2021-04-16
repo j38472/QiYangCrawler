@@ -1,7 +1,7 @@
 package ShiPinJiXieSheBeiWang_foodjx;
 
 import Dao.PoJo;
-import Dao.Tool;
+import Dao.MyTool;
 import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
@@ -32,7 +32,7 @@ public class Startover {
         //地址循环
         String urlChuShi = null;
 
-        Tool tool = new Tool();
+        MyTool myTool = new MyTool();
         //地区循环
         for (int t = 7; t < 36; t++) {
             //品类循环
@@ -47,7 +47,7 @@ public class Startover {
                                 urlChuShi = "https://www.foodjx.com/company/a_T" + t + "/list_p" + k + "_TID" + tid + "_CH" + ch + "_AN_CP.html";
                                 System.out.println("初始列表页链接：：：：：：" + urlChuShi);
                                 PoJo poJo = new PoJo();
-                                poJo = tool.ClientGetHtmlPage(urlChuShi,"https://www.foodjx.com");
+                                poJo = myTool.ClientGetHtmlPage(urlChuShi,"https://www.foodjx.com");
                                 String HtmlPage = poJo.getHtml();
 
                                 // 如果有返回值  这是证明本详情页没有数据
