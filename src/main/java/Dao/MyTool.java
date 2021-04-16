@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 /**
  * 工具类
  */
-public class Tool {
+public class MyTool {
 
     /**
      * jsoup 获取页面数据
@@ -126,11 +126,8 @@ public class Tool {
 
     public static String isPhoneRegexp() {
         String regexp = "";
-        String mobilePhoneRegexp = "(?:(\\(\\+?86\\))((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})|" +
-                "(?:86-?((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})|" +
-                "(?:((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})";
-        String landlinePhoneRegexp = "(?:(\\(\\+?86\\))(0[0-9]{2,3}\\-?)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?)|" +
-                "(?:(86-?)?(0[0-9]{2,3}\\-?)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?)";
+        String mobilePhoneRegexp = "(?:(\\(\\+?86\\))((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})|(?:86-?((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})|(?:((1[0-9]{1}[0-9]{1})|(15[0-9]{1})|(18[0,5-9]{1}))+\\d{8})";
+        String landlinePhoneRegexp = "(?:(\\(\\+?86\\))(0[0-9]{2,3}\\-?)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?)|(?:(86-?)?(0[0-9]{2,3}\\-?)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?)";
         regexp += "(?:" + mobilePhoneRegexp + "|" + landlinePhoneRegexp +")";
         return regexp;
     }
@@ -143,7 +140,8 @@ public class Tool {
      */
     public String checkTelephone(String str) {
         // 将给定的正则表达式编译到模式中
-        Pattern pattern = Pattern.compile(isPhoneRegexp());
+        String strPat= "[0-9]{3,4}-[0-9]{7,8}";
+        Pattern pattern = Pattern.compile(strPat);
         // 创建匹配给定输入与此模式的匹配器。
         Matcher matcher = null;
         try {
@@ -156,14 +154,12 @@ public class Tool {
 //        System.out.println("matcher.matches():::::::::::::::::::::::::::::::::::::::::::::::::" + matcher.matches());
         //查找字符串中是否有符合的子字符串
         String strJG = null;
-        try {
-            if (matcher.matches()) {
+        if (matcher != null) {
+            while (matcher.find()) {
                 //查找到符合的即输出
                 strJG = matcher.group();
-                System.out.println("查询到一个符合的固话号码：" + strJG);
+                System.out.println("查询到一个符合的手机号码：" + strJG);
             }
-        }catch (NullPointerException e){
-
         }
 
         System.out.println("最后打印一下strJG:::" + strJG);
@@ -332,6 +328,42 @@ public class Tool {
             str = lisStr[1];
         }
         return  str;
+    }
+
+
+    /**
+     *
+     * 根据传来的 strPattern 正则 匹配Str
+     * @param strPattern 用于匹配的正则
+     * @param str 需要匹配的字符串
+     * @return  匹配出的字符串
+     *
+     */
+    public String reStr(String strPattern ,String str){
+        // 将给定的正则表达式编译到模式中
+        Pattern pattern = Pattern.compile(strPattern);
+        // 创建匹配给定输入与此模式的匹配器。
+        Matcher matcher = null;
+        try {
+            matcher = pattern.matcher(str);
+        } catch (NullPointerException e) {
+            System.out.println("这个匹配的字符串是空的:::::"+str);
+        }
+
+//        System.out.println("matcher.matches():::::::::::::::::::::::::::::::::::::::::::::::::" + matcher.matches());
+        //查找字符串中是否有符合的子字符串
+
+        String strJG = null;
+        if (matcher != null) {
+            while (matcher.find()) {
+                //查找到符合的即输出
+                strJG = matcher.group();
+//                System.out.println(strJG);
+            }
+        }
+
+//        System.out.println("匹配结果为：：：" + strJG);
+        return strJG;
     }
 
 
