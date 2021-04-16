@@ -2,7 +2,7 @@ package SqlCleaning;
 
 import Dao.MyJDBC;
 import Dao.PoJo;
-import Dao.Tool;
+import Dao.MyTool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,18 +13,20 @@ import java.util.List;
 public class CleaningDataDb {
 
     //主营要包含的 关键字
-    final static String[] ZY_YES = {"水产", "海产", "土产",
+    final static String[] ZY_YES = {"水产", "海产", "土产", "包子", "凉皮","罐头",
             "灌装", "封尾", "旋盖", "贴标", "包装", "输送", "喷码", "封口", "速冻",
             "咖啡", "脱皮", "脱壳", "调味", "汉堡", "消毒", "清洗", "灭菌", "切片", "花生", "咖喱", "添加剂", "膨化", "搅拌",
             "粉", "农", "葵", "豆", "薯", "果", "菌", "肉", "稻"
             , "猪", "牛", "羊", "鱼", "鸟", "鸡", "蛋", "米", "麦", "酱", "谷", "鸭", "鹅", "兔", "瓜", "食"
-            , "饼", "罐头", "菜", "粮", "餐", "素", "骨", "枣", "栗", "面", "糖", "奶", "饺", "茄", "麸", "糯",
-            "炒", "煎", "炸", "炖", "煮", "汤", "粥", "料", "腌", "熏", "渔", "烧", "炖", "筋", "萝", "姜", "蒜", "葱", "辣", "烤", "冰", "浆", "糕", "厨", "蒸", "盐",
-            "糖", "泡", "煸", "煲"
-            , "笋", "炉", "榨", "碗", "屠", "吃", "腐", "禽", "畜", "烘", "麻", "馍", "馒", "蹄", "饮", "盆", "勺", "筷", "锅", "叉", "膜",
-            "蜜", "孜", "馅", "丸", "罐", "汁水", "蘸", "醒", "酥"
-//                ,"包子","凉皮","油","","","","","","","","","",""
+            , "饼",  "菜", "粮", "餐", "素", "骨", "枣", "栗", "面", "糖", "奶", "饺", "茄", "麸", "糯",
+            //做法
+            "炒", "煎", "炸", "炖", "煮", "泡", "煸", "煲","烘", "蒸","烤","炖","烧","腌", "熏",
+            "汤", "粥", "料",  "渔",  "筋", "萝", "姜", "蒜", "葱", "辣",  "冰", "浆", "糕", "厨", "盐",
+            "糖", "笋", "炉", "榨", "碗", "屠", "吃", "腐", "禽", "畜", "麻", "馍", "馒", "蹄", "饮", "盆", "勺", "筷", "锅", "叉", "膜",
+            "蜜", "孜", "馅", "丸", "罐", "汁水", "蘸", "醒", "酥", "椒", "茶", "酸", "菇"
+//                ,"","","","","","",""
     };
+    //公司名字中不能包含的数据
     final static String[] LIST_NAME = {"电子科技", "仪表",
             "展览", "物业", "宠物", "文化", "软件", "种业", "秸秆", "动物", "策划",
             "生物工程", "配件", "美容", "医学", "摄影", "网络", "日用品", "医疗", "木材", "咨询", "水站",
@@ -40,35 +42,11 @@ public class CleaningDataDb {
     public static void main(String[] args) {
         CleaningDataDb cleaningDataDb = new CleaningDataDb();
 
-
-        //        MyJDBC myJDBC = new MyJDBC();
-//        Tool tool = new Tool();
-
-
+/**
+ * 用于判断  ZY_YES 是不是包含 str
+ */
+//        String str = "酸";
 //
-//        String str = "字符串:---->\n" +
-//                "联系人：苏经理电话：18917713620更多联系方式>>\n" +
-//                "<----中不存在手机,无法截取目标字符串";
-
-//
-//        List<PoJo> listPojo = cleaningEntrance.SJDHCleaning();
-//        myJDBC.updataSJDH(listPojo);
-
-//        cleaningEntrance.isSJDHNull();
-
-
-        /**
-         * 清洗不是食品行业的  数据
-         *
-         * 有主营数据  就根据主营来判断  没有的话  就依据 名字  根据名字来清洗数据的误杀率比较高
-         * 先根据名字筛选一遍
-         * 筛选出的数据  判断主营业务是不是和食品有关
-         */
-        cleaningDataDb.del_name_zy();
-
-
-//        String str = "产";
-
 //        jj:
 //        for (int i = 0; i < ZY_YES.length; i++) {
 //            if (ZY_YES[i].equals(str)) {
@@ -80,7 +58,44 @@ public class CleaningDataDb {
 //            }
 //        }
 
+//        cleaningEntrance.isSJDHNull();
+
+
+
+
+
+
+        /**
+         *需要清洗的 数据表名
+         */
+        List<String> dataDbList = new ArrayList();
+        dataDbList.add("");
+        dataDbList.add("");
+        dataDbList.add("");
+        dataDbList.add("");
+        for (String dataDb :
+                dataDbList) {
+            //先清洗手机号  再进行主营 和公司名字  判断是不是食品行业的公司
+            /**
+             * 应该再加上一个判断   有时候 手机号会在 电话的字段里面   电话 会在手机的字段里面
+             */
+            cleaningDataDb.SJDHCleaning(dataDb);
+            /**
+             * 清洗不是食品行业的  数据
+             *
+             * 有主营数据  就根据主营来判断  没有的话  就依据 名字  根据名字来清洗数据的误杀率比较高
+             * 先根据名字筛选一遍
+             * 筛选出的数据  判断主营业务是不是和食品有关
+             */
+            cleaningDataDb.del_name_zy(dataDb);
+
+
+        }
+
+
     }
+
+
 
 
     /**
@@ -88,11 +103,11 @@ public class CleaningDataDb {
      * 手机号和电话号码 中  可能会有标签  需要先进行清洗
      * 当只剩下号码 之后  在进行匹配
      */
-    public List<PoJo> SJDHCleaning() {
+    public void SJDHCleaning(String dataDb) {
         MyJDBC myJDBC = new MyJDBC();
-        List<PoJo> listPojo = new ArrayList<>();
-        listPojo = myJDBC.SelectIdSjDh();
-        Tool tool = new Tool();
+        List<PoJo> listPojo = new ArrayList<PoJo>();
+        listPojo = myJDBC.SelectIdSjDh(dataDb);
+        MyTool myTool = new MyTool();
         String dh = null;
         String sj = null;
         for (int i = 0; i < listPojo.size(); i++) {
@@ -105,10 +120,9 @@ public class CleaningDataDb {
             dh = listPojo.get(i).getDH();
             sj = listPojo.get(i).getSj();
 
+
             System.out.println("截取之前的dh" + dh);
-
-
-            dh = tool.MyTrim(dh);
+            dh = myTool.MyTrim(dh);
             System.out.println("清洗之后的电话号" + dh);
 //            //将电话号中的脏数据清洗一下
 //            try {
@@ -124,16 +138,31 @@ public class CleaningDataDb {
 //            System.out.println("清洗前的电话::::::" + dh);
 //            System.out.println("清洗前的手机::::::" + sj);
             //清洗数据
-            sj = tool.checkCellphone(sj);
-            dh = tool.checkTelephone(dh);
-            System.out.println("清洗之后的电话::::::" + dh);
-            System.out.println("清洗之后的手机::::::" + sj);
-            //修改实体集合中的数据
-            listPojo.get(i).setDH(dh);
-            listPojo.get(i).setSj(sj);
+            String cheSj = null;
+            String cheDh = null;
+            cheSj = myTool.checkCellphone(sj);
+            cheDh = myTool.checkTelephone(dh);
 
+            /**
+             * 如果同时为空  或者手机号为空
+             * 应该再加上一个判断
+             * 有时候 手机号会在 电话的字段里面
+             * 电话号码 的重要性不大
+             */
+            if (cheSj.length() < 11) {
+                cheSj = myTool.checkCellphone(dh);
+            }
+
+
+            System.out.println("清洗之后的电话::::::" + cheDh);
+            System.out.println("清洗之后的手机::::::" + cheSj);
+            //修改实体集合中的数据
+            listPojo.get(i).setDH(cheDh);
+            listPojo.get(i).setSj(cheSj);
         }
-        return listPojo;
+
+        myJDBC.updataSJDH(listPojo, dataDb);
+
 
     }
 
@@ -145,9 +174,9 @@ public class CleaningDataDb {
      */
     public void isSJDHNull() {
         MyJDBC myJDBC = new MyJDBC();
-        List<PoJo> listPojo = new ArrayList<>();
+        List<PoJo> listPojo = new ArrayList<PoJo>();
         listPojo = myJDBC.SelectIdSjDh();
-        Tool tool = new Tool();
+        MyTool myTool = new MyTool();
         String dh = null;
         String sj = null;
         int id = 0;
@@ -156,7 +185,8 @@ public class CleaningDataDb {
             dh = listPojo.get(i).getDH();
             sj = listPojo.get(i).getSj();
             id = listPojo.get(i).getID();
-            System.out.println(dh);
+
+
             if (dh.equals("null") & sj.equals("null")) {
                 myJDBC.deleteID(id);
             }
@@ -170,7 +200,7 @@ public class CleaningDataDb {
      * 删除掉表中  根据公司名字判断公司是不是食品相关的
      * 将清洗出的数据存入 根据名字删除的数据  表中
      */
-    public void del_name_zy() {
+    public void del_name_zy(String dataDb) {
 
         /**
          * 取出所有的ID　和　　公司名字
@@ -179,7 +209,6 @@ public class CleaningDataDb {
          *          删除　　存入　清洗出的数据表
          *
          */
-        String dataDb = "shipinjixieshebeiwang_foodjx";
         MyJDBC myJDBC = new MyJDBC();
         List<PoJo> poJoArrayList = myJDBC.getSelectDb(dataDb);
 
@@ -228,15 +257,15 @@ public class CleaningDataDb {
                 }
             }
 
-                //判断手机号和电话号是不是都存在
-                String sj = poJo.getSj();
-                String dh = poJo.getDH();
+            //判断手机号和电话号是不是都存在
+            String sj = poJo.getSj();
+            String dh = poJo.getDH();
 
-                //只要有一个手机号 或者电话号 存在  我就不删除数据
-                if (sj.length() > 11 || dh.length() > 8) {
-                    boo = false;
-                }
-            
+            //只要有一个手机号 或者电话号 存在  我就不删除数据
+            if (sj.length() > 11 || dh.length() > 8) {
+                boo = false;
+            }
+
 
             if (boo) {
                 myJDBC.deleteID(id, dataDb);
