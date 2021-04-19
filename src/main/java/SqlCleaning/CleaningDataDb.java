@@ -281,4 +281,51 @@ public class CleaningDataDb {
     }
 
 
+    /**
+     * 将数据库中数值为null值得数据改为 空
+     */
+    public void del_V_Null(String dataDb) {
+        MyJDBC myJDBC = new MyJDBC();
+        List<PoJo> poJoArrayList = myJDBC.getSelectDb(dataDb);
+        boolean boo = false;
+        for (PoJo pojo :
+                poJoArrayList) {
+            if (pojo.getName().equals("null")) {
+                pojo.setName("");
+                boo = true;
+            }
+            if (pojo.getZY().equals("null")) {
+                pojo.setZY("");
+                boo = true;
+
+            }
+            if (pojo.getSj().equals("null")) {
+                pojo.setSj("");
+                boo = true;
+
+            }
+            if (pojo.getLXR().equals("null")) {
+                pojo.setLXR("");
+                boo = true;
+
+            }
+            if (pojo.getDZ().equals("null")) {
+                pojo.setDZ("");
+                boo = true;
+
+            }
+            if (pojo.getDH().equals("null")) {
+                pojo.setDH("");
+                boo = true;
+            }
+
+            if (boo){
+                myJDBC.upDate(pojo,dataDb);
+            }
+
+        }
+    }
+
+
+
 }

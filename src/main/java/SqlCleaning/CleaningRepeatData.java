@@ -18,6 +18,7 @@ public class CleaningRepeatData {
 
     /**
      * 根据url 清楚重复数据
+     * @param dataDb 需要清洗的数据库 表明名字
      */
     public void repeatDataUrl(String dataDb) {
         int cont = 0;

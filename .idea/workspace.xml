@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningRepeatData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/要求" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/QiYangCrawler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/QiYangCrawler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiYiShiPinWang_foods1/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiYiShiPinWang_foods1/Entrance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiYiShiPinWang_foods1/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiYiShiPinWang_foods1/Startover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Entrance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/Startover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinJiXieSheBeiWang_foodjx/text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinSheBeiWangspsb114/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinSheBeiWangspsb114/Entrance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShiPinSheBeiWangspsb114/Startover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiPinSheBeiWangspsb114/Startover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyTool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningDataDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningDataDb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Text/ajax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Text/ajax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shi_pin_huo_ban_wang_foodmate/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shi_pin_huo_ban_wang_foodmate/Entrance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningRepeatData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningRepeatData.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -241,7 +227,8 @@
       <workItem from="1618190461290" duration="15585000" />
       <workItem from="1618276247489" duration="10440000" />
       <workItem from="1618369736547" duration="30727000" />
-      <workItem from="1618536961177" duration="12869000" />
+      <workItem from="1618536961177" duration="13861000" />
+      <workItem from="1618795008285" duration="3004000" />
     </task>
     <task id="LOCAL-00001" summary="食品伙伴网爬虫">
       <created>1617090371992</created>

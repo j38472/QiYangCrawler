@@ -367,4 +367,9 @@ public class MyTool {
     }
 
 
+    //获取一个不在数据库显示“null"的字符
+    public String upDateNull(){
+        return "";
+    }
+
 }

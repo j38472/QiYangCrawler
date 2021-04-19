@@ -166,7 +166,33 @@ public class MyJDBC {
             //执行插入 sql
             System.out.println("执行插入 sql------------------------------------");
             String InsertSqlFormat = "INSERT INTO " + dataDb + " (Name,Url,Zy,LXR,DH,SJ,DZ)VALUES('%s','%s','%s','%s','%s','%s','%s');";
-            String InsertSql = String.format(InsertSqlFormat, poJo.getName(), poJo.getUrl(), poJo.getZY(), poJo.getLXR(), poJo.getDH(), poJo.getSj(), poJo.getDZ());
+            String name = "";
+            String zy = "";
+            String lxr = "";
+            String dh = "";
+            String sj = "";
+            String dz = "";
+            if (!poJo.getName().equals("null")){
+                name = poJo.getName();
+            }
+            if (!poJo.getZY().equals("null")){
+                zy = poJo.getZY();
+            }
+            if (!poJo.getLXR().equals("null")){
+                lxr = poJo.getLXR();
+            }
+            if (!poJo.getDH().equals("null")){
+                dh = poJo.getDH();
+            }
+            if (!poJo.getSj().equals("null")){
+                sj = poJo.getSj();
+            }
+            if (!poJo.getDZ().equals("null")){
+                dz = poJo.getDZ();
+            }
+
+
+            String InsertSql = String.format(InsertSqlFormat, name, poJo.getUrl(), zy, lxr, dh, sj, dz);
             System.out.println("sql语句为：：：：：：：" + InsertSql);
             stmt.executeUpdate(InsertSql);
         } catch (Exception e) {
@@ -387,6 +413,53 @@ public class MyJDBC {
             e.printStackTrace();
         }
         return list;
+    }
+
+    /**
+     * 更新数据
+     * @param poJo
+     * @param dataDb
+     */
+    public void upDate(PoJo poJo, String dataDb) {
+        String InsertSql = "UPDATE %s SET DH='%s',Sj='%s',Name='%s',Zy='%s',LXR='%s',DZ='%s' WHERE id=%s;";
+        String dh = "";
+        String sj = "";
+        String name = "";
+        String zy = "";
+        String lxr = "";
+        String dz = "";
+
+        String pojoDh = poJo.getDH();
+        String pojosj = poJo.getSj();
+        String pojoName = poJo.getSj();
+        String pojoZy = poJo.getSj();
+        String pojoLxr = poJo.getSj();
+        String pojoDz = poJo.getSj();
+        if (pojoDh != null) {
+            dh = poJo.getDH();
+        }
+        if (pojosj != null) {
+            sj = poJo.getSj();
+        }
+        if (pojoName != null) {
+            name = poJo.getName();
+        }
+        if (pojoZy != null) {
+            zy = poJo.getZY();
+        }
+        if (pojoLxr != null) {
+            lxr = poJo.getLXR();
+        }
+        if (pojoDz != null) {
+            dz = poJo.getDZ();
+        }
+        InsertSql = String.format(InsertSql, dataDb, dh, sj,name,zy,lxr,dz, poJo.getID());
+        System.out.println(InsertSql);
+        try {
+            stmt.executeUpdate(InsertSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
