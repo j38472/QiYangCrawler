@@ -13,15 +13,15 @@ import java.util.List;
 public class CleaningDataDb {
 
     //主营要包含的 关键字
-    final static String[] ZY_YES = {"水产", "海产", "土产", "包子", "凉皮","罐头",
+    final static String[] ZY_YES = {"水产", "海产", "土产", "包子", "凉皮", "罐头",
             "灌装", "封尾", "旋盖", "贴标", "包装", "输送", "喷码", "封口", "速冻",
             "咖啡", "脱皮", "脱壳", "调味", "汉堡", "消毒", "清洗", "灭菌", "切片", "花生", "咖喱", "添加剂", "膨化", "搅拌",
             "粉", "农", "葵", "豆", "薯", "果", "菌", "肉", "稻"
             , "猪", "牛", "羊", "鱼", "鸟", "鸡", "蛋", "米", "麦", "酱", "谷", "鸭", "鹅", "兔", "瓜", "食"
-            , "饼",  "菜", "粮", "餐", "素", "骨", "枣", "栗", "面", "糖", "奶", "饺", "茄", "麸", "糯",
+            , "饼", "菜", "粮", "餐", "素", "骨", "枣", "栗", "面", "糖", "奶", "饺", "茄", "麸", "糯",
             //做法
-            "炒", "煎", "炸", "炖", "煮", "泡", "煸", "煲","烘", "蒸","烤","炖","烧","腌", "熏",
-            "汤", "粥", "料",  "渔",  "筋", "萝", "姜", "蒜", "葱", "辣",  "冰", "浆", "糕", "厨", "盐",
+            "炒", "煎", "炸", "炖", "煮", "泡", "煸", "煲", "烘", "蒸", "烤", "炖", "烧", "腌", "熏",
+            "汤", "粥", "料", "渔", "筋", "萝", "姜", "蒜", "葱", "辣", "冰", "浆", "糕", "厨", "盐",
             "糖", "笋", "炉", "榨", "碗", "屠", "吃", "腐", "禽", "畜", "麻", "馍", "馒", "蹄", "饮", "盆", "勺", "筷", "锅", "叉", "膜",
             "蜜", "孜", "馅", "丸", "罐", "汁水", "蘸", "醒", "酥", "椒", "茶", "酸", "菇"
 //                ,"","","","","","",""
@@ -37,7 +37,6 @@ public class CleaningDataDb {
             "仪表", "仪器", "显微镜", "机电设备", "阀门", "臭氧", "辐射"
 //            ,"","","","","",""
     };
-
 
     public static void main(String[] args) {
         CleaningDataDb cleaningDataDb = new CleaningDataDb();
@@ -59,10 +58,6 @@ public class CleaningDataDb {
 //        }
 
 //        cleaningEntrance.isSJDHNull();
-
-
-
-
 
 
         /**
@@ -95,9 +90,6 @@ public class CleaningDataDb {
 
     }
 
-
-
-
     /**
      * 首先取出手机号码和电话号
      * 手机号和电话号码 中  可能会有标签  需要先进行清洗
@@ -122,8 +114,11 @@ public class CleaningDataDb {
 
 
             System.out.println("截取之前的dh" + dh);
+            System.out.println("截取之前的sj" + sj);
             dh = myTool.MyTrim(dh);
+            sj = myTool.MyTrim(sj);
             System.out.println("清洗之后的电话号" + dh);
+            System.out.println("清洗之后的shouji号" + sj);
 //            //将电话号中的脏数据清洗一下
 //            try {
 //                if (dh.indexOf("电") != -1) {
@@ -140,22 +135,21 @@ public class CleaningDataDb {
             //清洗数据
             String cheSj = null;
             String cheDh = null;
-            cheSj = myTool.checkCellphone(sj);
-            cheDh = myTool.checkTelephone(dh);
 
-            /**
-             * 如果同时为空  或者手机号为空
-             * 应该再加上一个判断
-             * 有时候 手机号会在 电话的字段里面
-             * 电话号码 的重要性不大
-             */
-            if (cheSj.length() < 11) {
+
+            //如果手机号码在匹配手机字段 没有匹配出数据  直接用手机号匹配电话号  以手机号为重
+            cheSj = myTool.checkCellphone(sj);
+            if (cheSj==null || cheSj.length()<10){
                 cheSj = myTool.checkCellphone(dh);
+            }
+            //如果手机号没有在电话字段中匹配出来  则用于匹配电话号
+            if (cheSj==null || cheSj.length()<10){
+                cheDh = myTool.checkTelephone(dh);
             }
 
 
-            System.out.println("清洗之后的电话::::::" + cheDh);
-            System.out.println("清洗之后的手机::::::" + cheSj);
+            System.out.println("Re之后的电话::::::" + cheDh);
+            System.out.println("Re之后的手机::::::" + cheSj);
             //修改实体集合中的数据
             listPojo.get(i).setDH(cheDh);
             listPojo.get(i).setSj(cheSj);
@@ -164,37 +158,8 @@ public class CleaningDataDb {
         myJDBC.updataSJDH(listPojo, dataDb);
 
 
-    }
-
-
-    /**
-     * 判断是手机号和电话号是不是都是空的
-     *
-     * @return
-     */
-    public void isSJDHNull() {
-        MyJDBC myJDBC = new MyJDBC();
-        List<PoJo> listPojo = new ArrayList<PoJo>();
-        listPojo = myJDBC.SelectIdSjDh();
-        MyTool myTool = new MyTool();
-        String dh = null;
-        String sj = null;
-        int id = 0;
-        for (int i = 0; i < listPojo.size(); i++) {
-            //获取数据
-            dh = listPojo.get(i).getDH();
-            sj = listPojo.get(i).getSj();
-            id = listPojo.get(i).getID();
-
-
-            if (dh.equals("null") & sj.equals("null")) {
-                myJDBC.deleteID(id);
-            }
-
-        }
 
     }
-
 
     /**
      * 删除掉表中  根据公司名字判断公司是不是食品相关的
@@ -280,7 +245,6 @@ public class CleaningDataDb {
 
     }
 
-
     /**
      * 将数据库中数值为null值得数据改为 空
      */
@@ -319,13 +283,48 @@ public class CleaningDataDb {
                 boo = true;
             }
 
-            if (boo){
-                myJDBC.upDate(pojo,dataDb);
+            if (boo) {
+                myJDBC.upDate(pojo, dataDb);
+                boo = false;
             }
 
         }
     }
 
+    /**
+     * 判断是手机号和电话号是不是都是空的
+     *
+     * @return
+     */
+    public void isSJDHNull(String dataDb) {
+        MyJDBC myJDBC = new MyJDBC();
+        List<PoJo> listPojo = new ArrayList<PoJo>();
+        listPojo = myJDBC.SelectIdSjDh(dataDb);
+        MyTool myTool = new MyTool();
+        String dh = null;
+        String sj = null;
+        int id = 0;
+        int cotn = 0;
+        boolean boo = false;
+        for (PoJo poJo : listPojo) {
+            //获取数据
+            dh = poJo.getDH();
+            sj = poJo.getSj();
+            id = poJo.getID();
 
+            if (dh.length()<8 && sj.length()<10) {
+                boo = true;
+            }
+            if (boo){
+                myJDBC.deleteID(id,dataDb);
+                myJDBC.addName(poJo.getName(),poJo.getUrl());
+                cotn++;
+                boo = false;
+            }
+
+        }
+        System.out.println("isSJDHNull 删除了"+cotn+"条数据");
+
+    }
 
 }
