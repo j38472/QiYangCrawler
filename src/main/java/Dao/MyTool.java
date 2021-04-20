@@ -8,6 +8,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -93,6 +94,45 @@ public class MyTool {
         return poJo;
     }
 
+    /**
+     * 用于判断本电脑是不是还有网络链接
+     * 如果没有了网络链接就  停止程序
+     * 判断是否有网络链接的方式为 访问 baidu.com 这种不会关闭服务器的页面
+     * 如果正常返回数据 这是还有网络链接   反之就是没有了网络链接
+     * 返回 Boolean  true为有网络链接  false为没有网络链接  默认true
+     * @return
+     */
+    @Test
+    public void isInternet(){
+        boolean isInter = true;
+        MyTool myTool = new MyTool();
+        while (true){
+            PoJo poJo =  myTool.ClientGetHtmlPage("https://www.baidu.com/","https://www.baidu.com/");
+            System.out.println(poJo.getZTCode());
+//            System.out.println(poJo.getHtml());
+            //如果返回的状态码是零的情况下  则表明 当前没有了网络链接
+            if (poJo.getZTCode()==0){
+                System.out.println("没有网络链接了");
+                try {
+                    System.out.println("休眠十秒");
+                    Thread.sleep(1000*10);
+                    System.out.println("休眠结束");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                isInter = false;
+            }else {
+                System.out.println("网络状况没有问题！！！！");
+                isInter = true;
+            }
+        }
+
+
+
+//        return isInter;
+    }
+
+
 
     /**
      * 查询符合的手机号码
@@ -101,7 +141,8 @@ public class MyTool {
      */
     public String checkCellphone(String str) {
         // 将给定的正则表达式编译到模式中
-        String Re = "((1[0-9]))\\d{9}";
+        // 有时 手机号会在电话号的字段中  这个时候  坐标为3的 可能是-  整体长度为12
+        String Re = "1\\d{2}-?\\d{8}";
         Pattern pattern = Pattern.compile(Re);
         // 创建匹配给定输入与此模式的匹配器。
         Matcher matcher = null;
@@ -120,6 +161,9 @@ public class MyTool {
                 System.out.println("查询到一个符合的手机号码：" + strJG);
             }
         }
+
+        //如果匹配出的手机号 包含了 -  则清除掉该字符
+        strJG = strJG.replaceAll("-","");
 
         return strJG;
     }
@@ -183,6 +227,7 @@ public class MyTool {
             str = str.replaceAll("0086-", "");
             str = str.replaceAll("086-", "");
             str = str.replaceAll("86-", "");
+            str = str.replaceAll("400-", "");
         }
         return str;
     }

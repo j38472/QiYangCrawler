@@ -7,8 +7,6 @@
     <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningDataDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningDataDb.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +112,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CleaningRepeatData">
+  <component name="RunManager" selected="JUnit.MyTool.isInternet">
     <configuration name="CleaningDataDb" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SqlCleaning.CleaningDataDb" />
       <module name="QiYangCrawler" />
@@ -134,19 +132,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="SqlCleaning.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ajax" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Text.ajax" />
-      <module name="QiYangCrawler" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Text.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -180,20 +165,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyTool.isInternet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QiYangCrawler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Dao" />
+      <option name="MAIN_CLASS_NAME" value="Dao.MyTool" />
+      <option name="METHOD_NAME" value="isInternet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.ajax" />
       <item itemvalue="Application.CleaningDataDb" />
       <item itemvalue="Application.text" />
       <item itemvalue="Application.text (1)" />
       <item itemvalue="Application.CleaningRepeatData" />
+      <item itemvalue="JUnit.MyTool.isInternet" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MyTool.isInternet" />
         <item itemvalue="Application.CleaningRepeatData" />
         <item itemvalue="Application.text" />
         <item itemvalue="Application.CleaningDataDb" />
         <item itemvalue="Application.text (1)" />
-        <item itemvalue="Application.ajax" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +228,7 @@
       <workItem from="1618276247489" duration="10440000" />
       <workItem from="1618369736547" duration="30727000" />
       <workItem from="1618536961177" duration="13861000" />
-      <workItem from="1618795008285" duration="7315000" />
+      <workItem from="1618795008285" duration="10095000" />
     </task>
     <task id="LOCAL-00001" summary="食品伙伴网爬虫">
       <created>1617090371992</created>
