@@ -174,12 +174,16 @@ public class MyTool {
      * @return
      */
     public String MyTrim(String str) {
-        str = str.replaceAll("　", "");
-        str = str.replaceAll(" ", "");
-        str = str.replaceAll("&nbsp", "");
-        str = str.replaceAll("&nbsp;", "");
-        str = str.replaceAll(";", "");
-
+        if (str != null) {
+            str = str.replaceAll("　", "");
+            str = str.replaceAll(" ", "");
+            str = str.replaceAll("&nbsp", "");
+            str = str.replaceAll("&nbsp;", "");
+            str = str.replaceAll(";", "");
+            str = str.replaceAll("0086-", "");
+            str = str.replaceAll("086-", "");
+            str = str.replaceAll("86-", "");
+        }
         return str;
     }
 
