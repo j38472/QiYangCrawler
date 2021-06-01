@@ -19,7 +19,7 @@ public class MyJDBC {
 
     // 数据库的用户名与密码，需要根据自己的设置
     static final String USER = "root";
-    static final String PASS = "root";
+    static final String PASS = "";
 
     Connection conn = null;
     Statement stmt = null;
@@ -27,7 +27,7 @@ public class MyJDBC {
 
     public MyJDBC() {
         // 获取mysql连接地址
-        String DB_URL = "jdbc:mysql://localhost:3306/qiyangdata?serverTimezone=GMT&useSSL=false";
+        String DB_URL = "jdbc:mysql://localhost:6606/qiyang?serverTimezone=GMT&useSSL=false";
 
         // 注册 JDBC 驱动
         System.out.println("注册 JDBC 驱动------------------------------");
@@ -462,7 +462,46 @@ public class MyJDBC {
         }
     }
 
+    /**
+     * 根据id 修改指定表中的 name zy
+     *
+     * @param id
+     * @param name
+     * @param zy
+     * @param dataDb
+     */
+    public void upNameZy(int id, String name, String zy, String dataDb) {
+        String InsertSql = "UPDATE %s SET Name='%s',Zy='%s' WHERE id=%s;";
+        InsertSql = String.format(InsertSql, dataDb, name, zy, id);
+        System.out.println(InsertSql);
+        try {
+            stmt.executeUpdate(InsertSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+    }
+
+
+    public List<PoJo> getSearch(String dateDb) {
+        List<PoJo> list = new ArrayList();// 定义一个list，用来存放数据
+        String selectSql = "SELECT * FROM `" + dateDb + "`;";
+        try {
+            PreparedStatement state = conn.prepareCall(selectSql);//通过PreparedStatement执行查询语句
+            ResultSet rs = state.executeQuery();//将数据写入到ResultSet中
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String url = rs.getString("Url");
+                PoJo poJo = new PoJo();
+                poJo.setUrl(url);
+                poJo.setID(id);
+                list.add(poJo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
 
 

@@ -30,7 +30,37 @@ public class MyTool {
     /**
      * httpUnit 获取页面数据
      */
-    public void UnitGetHemlData(){}
+    public void UnitGetHemlData(String url){
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setSocketTimeout(15000)
+                .setConnectTimeout(15000)
+                .setConnectionRequestTimeout(15000).build();
+        CloseableHttpClient httpClient = null;
+        CloseableHttpResponse response = null;
+        HttpEntity entity = null;
+
+        System.out.println("获取页面数据-------URL为：：：：：" + url);
+        //client 获取页面信息
+        httpClient = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet(url);// 创建get请求
+        // 设置头
+        httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2");
+//        httpGet.setHeader("Referer", referer);
+        httpGet.setConfig(requestConfig);
+        // 执行请求
+        System.out.println("执行请求-----------");
+        String HtmlPage = "";
+        try {
+            response = httpClient.execute(httpGet);
+            entity = response.getEntity();
+            HtmlPage = EntityUtils.toString(entity, "UTF-8");
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        System.out.println("HtmlPage  "+HtmlPage);
+        System.out.println();
+
+    }
 
     /**
      * 获取url的页面信息
@@ -96,17 +126,18 @@ public class MyTool {
 
     /**
      * 用于判断本电脑是不是还有网络链接
-     * 如果没有了网络链接就  停止程序
      * 判断是否有网络链接的方式为 访问 baidu.com 这种不会关闭服务器的页面
-     * 如果正常返回数据 这是还有网络链接   反之就是没有了网络链接
+     * 如果没有网络链接 访问不到百度的页面   将会一直在本方法进入死循环
+     * 直到网络链接正常 才会结束本方法  继续爬虫进度
+     * 如果正常返回数据 状态码 不是0 的时候 说明还有网络链接   反之就是没有了网络链接
      * 返回 Boolean  true为有网络链接  false为没有网络链接  默认true
      * @return
      */
-    @Test
     public void isInternet(){
         boolean isInter = true;
         MyTool myTool = new MyTool();
-        while (true){
+        int  i = 1 ;
+        while (isInter){
             PoJo poJo =  myTool.ClientGetHtmlPage("https://www.baidu.com/","https://www.baidu.com/");
             System.out.println(poJo.getZTCode());
 //            System.out.println(poJo.getHtml());
@@ -114,22 +145,22 @@ public class MyTool {
             if (poJo.getZTCode()==0){
                 System.out.println("没有网络链接了");
                 try {
-                    System.out.println("休眠十秒");
-                    Thread.sleep(1000*10);
+                    int sleepInt = 1000*10*i++;
+                    System.out.println("休眠"+sleepInt+"秒");
+                    //每次循环都会增加休眠的时间
+                    Thread.sleep(sleepInt);
                     System.out.println("休眠结束");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                isInter = false;
+                isInter = true;
             }else {
                 System.out.println("网络状况没有问题！！！！");
-                isInter = true;
+                isInter = false;
+
             }
         }
 
-
-
-//        return isInter;
     }
 
 
@@ -142,7 +173,7 @@ public class MyTool {
     public String checkCellphone(String str) {
         // 将给定的正则表达式编译到模式中
         // 有时 手机号会在电话号的字段中  这个时候  坐标为3的 可能是-  整体长度为12
-        String Re = "1\\d{2}-?\\d{8}";
+        String Re = "1\\d{2}-?\\d{8}|1\\d{3}-?\\d{7}";
         Pattern pattern = Pattern.compile(Re);
         // 创建匹配给定输入与此模式的匹配器。
         Matcher matcher = null;
@@ -163,8 +194,9 @@ public class MyTool {
         }
 
         //如果匹配出的手机号 包含了 -  则清除掉该字符
-        strJG = strJG.replaceAll("-","");
-
+        if(strJG!=null && strJG.indexOf('-')!=-1){
+            strJG = strJG.replaceAll("-","");
+        }
         return strJG;
     }
 
@@ -184,7 +216,7 @@ public class MyTool {
      */
     public String checkTelephone(String str) {
         // 将给定的正则表达式编译到模式中
-        String strPat= "[0-9]{3,4}-[0-9]{7,8}";
+        String strPat= "^[0-9]{3,4}-[0-9]{7,8}$";
         Pattern pattern = Pattern.compile(strPat);
         // 创建匹配给定输入与此模式的匹配器。
         Matcher matcher = null;
@@ -228,6 +260,7 @@ public class MyTool {
             str = str.replaceAll("086-", "");
             str = str.replaceAll("86-", "");
             str = str.replaceAll("400-", "");
+            str = str.replaceAll("【未认证】", "");
         }
         return str;
     }
@@ -235,6 +268,7 @@ public class MyTool {
 
     /**
      * 注意 这个是未完成的代码模块
+     * 不需要匹配这个东西
      * 正则匹配工具  分组匹配
      * 正则：："地址：([\\u4E00-\\u9FA5A-Za-z0-9]*\\s)*"
      *
@@ -337,7 +371,8 @@ public class MyTool {
 //                 "                                    　　传真：028-85182274\n" +
 //                 "                                    　　手机：13808067328\n" +
 //                 "                                    　　邮编：610041";
-        Pattern patt = Pattern.compile("\t|\r|\n");
+        String comp = "\t|\r|\n";
+        Pattern patt = Pattern.compile(comp);
         Matcher m = patt.matcher(string);
         string = m.replaceAll("");
         string = string.replaceAll(" +", " ");

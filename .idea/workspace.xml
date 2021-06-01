@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9022b579-d038-46a4-919b-7bd05c995ac7" name="Default Changelist" comment="捕获了个异常">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Text/UnicodeDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Text/demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/clean_china/stare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/QiYangCrawler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/QiYangCrawler.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyJDBC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/MyTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/MyTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/text.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningDataDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningDataDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningRepeatData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SqlCleaning/CleaningRepeatData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Text/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Text/text.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,16 +45,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/Dao/text.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JsBowerSettings">
     <node-interpreter value="project" />
@@ -78,7 +92,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/大数据相关文件/XpathProject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OCR" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -112,13 +126,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MyTool.isInternet">
+  <component name="RunManager" selected="Application.CleaningDataDb">
     <configuration name="CleaningDataDb" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SqlCleaning.CleaningDataDb" />
       <module name="QiYangCrawler" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="SqlCleaning.CleaningDataDb" />
+          <option name="PATTERN" value="SqlCleaning.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,8 +153,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="text (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Text.text" />
+    <configuration name="demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Text.demo" />
       <module name="QiYangCrawler" />
       <extension name="coverage">
         <pattern>
@@ -152,12 +166,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="text" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Dao.text" />
+    <configuration name="stare" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clean_china.stare" />
       <module name="QiYangCrawler" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Dao.*" />
+          <option name="PATTERN" value="clean_china.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -165,36 +179,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyTool.isInternet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="text.ncr" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="QiYangCrawler" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Dao.*" />
+          <option name="PATTERN" value="Text.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Dao" />
-      <option name="MAIN_CLASS_NAME" value="Dao.MyTool" />
-      <option name="METHOD_NAME" value="isInternet" />
+      <option name="PACKAGE_NAME" value="Text" />
+      <option name="MAIN_CLASS_NAME" value="Text.text" />
+      <option name="METHOD_NAME" value="ncr" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.CleaningDataDb" />
-      <item itemvalue="Application.text" />
-      <item itemvalue="Application.text (1)" />
+      <item itemvalue="Application.demo" />
+      <item itemvalue="Application.stare" />
       <item itemvalue="Application.CleaningRepeatData" />
-      <item itemvalue="JUnit.MyTool.isInternet" />
+      <item itemvalue="Application.CleaningDataDb" />
+      <item itemvalue="JUnit.text.ncr" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MyTool.isInternet" />
-        <item itemvalue="Application.CleaningRepeatData" />
-        <item itemvalue="Application.text" />
         <item itemvalue="Application.CleaningDataDb" />
-        <item itemvalue="Application.text (1)" />
+        <item itemvalue="Application.CleaningRepeatData" />
+        <item itemvalue="Application.stare" />
+        <item itemvalue="Application.demo" />
+        <item itemvalue="JUnit.text.ncr" />
       </list>
     </recent_temporary>
   </component>
@@ -228,7 +242,20 @@
       <workItem from="1618276247489" duration="10440000" />
       <workItem from="1618369736547" duration="30727000" />
       <workItem from="1618536961177" duration="13861000" />
-      <workItem from="1618795008285" duration="10095000" />
+      <workItem from="1618795008285" duration="21992000" />
+      <workItem from="1618967256851" duration="2092000" />
+      <workItem from="1619057302895" duration="1505000" />
+      <workItem from="1619080343530" duration="3077000" />
+      <workItem from="1619145489713" duration="270000" />
+      <workItem from="1619145859382" duration="3120000" />
+      <workItem from="1619401905415" duration="4543000" />
+      <workItem from="1619674560514" duration="4765000" />
+      <workItem from="1620263223767" duration="2413000" />
+      <workItem from="1620459911922" duration="8283000" />
+      <workItem from="1620876529307" duration="3087000" />
+      <workItem from="1620887747841" duration="1436000" />
+      <workItem from="1621492703596" duration="742000" />
+      <workItem from="1622525919473" duration="3590000" />
     </task>
     <task id="LOCAL-00001" summary="食品伙伴网爬虫">
       <created>1617090371992</created>
